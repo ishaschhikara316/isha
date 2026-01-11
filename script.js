@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeParallaxEffects();
     initializeTypewriterEffect();
+    initializeBlogListeners();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -332,7 +333,7 @@ function validateField(field) {
 
     // Email validation
     if (field.type === 'email' && value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^S@]+@[^S@]+\.[^S@]+$/;
         if (!emailRegex.test(value)) {
             fieldGroup.classList.add('error');
             return false;
@@ -540,5 +541,118 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         // Uncomment if you want to add a service worker
         // navigator.serviceWorker.register('/sw.js');
+    });
+}
+
+// ===== BLOG CONTENT DATA =====
+const blogData = {
+    'crispr': {
+        title: 'CRISPR-Cas9 Genome Editing: Advancing Therapeutic Strategies for Ameliorating Hepatocellular Carcinoma',
+        image: 'Image/Crispr-Cas9.png',
+        content: `
+            <p>This diagram summarizes my 70-page thesis into a single glance. To explain what this figure depicts, one can describe it as follows:</p>
+            
+            <h3>Delivery bottleneck in cirrhotic HCC</h3>
+            <p>This schematic summarizes the core finding of this thesis: in hepatocellular carcinoma arising in fibrotic/cirrhotic liver, the dominant limitation for CRISPR therapeutics is not intrinsic editing performance but payload accessibility to target hepatocytes/tumour cells.</p>
+            
+            <p>In healthy sinusoids, endothelial fenestrations permit lipid nanoparticle (LNP) transit into the space of Disse and onward delivery to hepatocytes. In fibrotic liver, sinusoidal capillarization/defenestration with basement-membrane formation, dense extracellular-matrix (collagen) deposition, and Kupffer-cell sequestration collectively trap or clear LNPs, leaving fewer particles to reach hepatocytes.</p>
+            
+            <p>These observations motivate future strategies that prioritize delivery solutions capable of bypassing this barrier (e.g., active targeting ligands and alternative vector platforms) as a prerequisite for effective clinical translation in cirrhotic HCC.</p>
+            
+            <div class="modal-section-divider"></div>
+            
+            <p>But if you have time and want to take a deeper dive to understand these concepts—which happen on a miniscule scale—by taking examples from the macroscopic world, here is my fun short story:</p>
+            
+            <h3>🏙️ Welcome to Liver City</h3>
+            <p>Imagine your liver as a bustling metropolis. The main residents are hepatocytes (the hardworking citizens keeping the lights on). But recently, a nasty gang called Hepatocellular Carcinoma (HCC) has moved in, usually thriving in neighborhoods that are already falling apart due to cirrhosis (scarring).</p>
+            <p>Enter the cavalry: CRISPR tools. Think of these as superhero delivery trucks loaded with gene-editing gear, sent to wipe out the HCC gang.</p>
+            
+            <h4>🎬 The Big Plot Twist</h4>
+            <p>The superheroes are actually great at their job (the gene editing works fine!). The problem isn't the hero—it's the traffic jam preventing them from getting to the fight. It is a logistics nightmare.</p>
+            
+            <h3>🟢 The Good Old Days (Healthy Liver)</h3>
+            <p>In a healthy city, the infrastructure is a delivery driver’s dream.</p>
+            <ul>
+                <li><strong>The Roads (Sinusoids):</strong> These blood vessels are lined with specialized endothelial cells.</li>
+                <li><strong>The Windows (Fenestrations):</strong> The roads have tiny, convenient "drive-thru windows" that allow the delivery trucks to slide right through.</li>
+                <li><strong>The Drop-off Zone (Space of Disse):</strong> The trucks slide through the windows into a chill lounge area right next to the hepatocytes. Delivery is seamless.</li>
+            </ul>
+            
+            <h3>🔴 Urban Decay (The Cirrhotic Liver)</h3>
+            <p>In a fibrotic or cirrhotic liver, disaster strikes. The infrastructure collapses, creating a hostile environment for our Lipid Nanoparticle (LNP) delivery trucks.</p>
+            
+            <h4>1. Road Closures (Defenestration)</h4>
+            <p>The sinusoids undergo "capillarization." They lose their drive-thru windows (loss of fenestrations) and slap up thick basement membranes.</p>
+            <p><em>The Metaphor:</em> It’s like the city replaced open roads with concrete barriers. The trucks can see the houses (hepatocytes), but they can’t get off the highway.</p>
+            
+            <h4>2. Construction Debris (Extracellular Matrix)</h4>
+            <p>The space between the road and the houses gets filled with dense collagen.</p>
+            <p><em>The Metaphor:</em> A massive, unmanaged construction site. Even if a truck hops the barrier, it gets stuck in piles of cement and debris, blocking the path to the front door.</p>
+            
+            <h4>3. Rogue Security (Kupffer Cells)</h4>
+            <p>The liver’s cleanup crew, the Kupffer cells, go into overdrive.</p>
+            <p><em>The Metaphor:</em> Security guards who have become paranoid. Instead of waving the delivery trucks through, they snatch them, shred them, and toss the packages before they ever reach the residents.</p>
+            
+            <h3>🚛 The Result & The Fix</h3>
+            <p>Because of this chaos, most LNPs get trapped in the debris or destroyed by security, starving the target cancer cells of their CRISPR payload. This "Delivery Bottleneck" is the #1 hurdle stopping CRISPR from becoming a clinic-ready therapy.</p>
+            
+            <h4>The Fleet Upgrade</h4>
+            <p>To smash through the traffic, we need to upgrade the trucks:</p>
+            <ul>
+                <li><strong>Active Targeting:</strong> Installing "GPS-guided systems" (ligands) so trucks can find secret shortcuts.</li>
+                <li><strong>Alternative Vectors:</strong> Swapping the delivery van for a tank (viral vectors or tougher polymers) that can crash through the construction site.</li>
+            </ul>
+        `
+    }
+};
+
+// ===== MODAL FUNCTIONALITY =====
+function openBlog(blogId) {
+    const modal = document.getElementById('blog-modal');
+    const modalBody = document.getElementById('modal-body');
+    const data = blogData[blogId];
+    
+    if (data) {
+        modalBody.innerHTML = `
+            <img src="${data.image}" alt="${data.title}" class="modal-header-image">
+            <h2 class="modal-title">${data.title}</h2>
+            <div class="modal-text">
+                ${data.content}
+            </div>
+        `;
+        
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+// Close modal functionality
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('blog-modal');
+    if (e.target.classList.contains('close-modal') || e.target === modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('blog-modal');
+        if (modal && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
+
+// Initialize blog card listeners
+function initializeBlogListeners() {
+    const blogCards = document.querySelectorAll('.portfolio-card[data-blog-id]');
+    blogCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const blogId = this.getAttribute('data-blog-id');
+            openBlog(blogId);
+        });
     });
 }
