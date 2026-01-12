@@ -546,6 +546,33 @@ if ('serviceWorker' in navigator) {
 
 // ===== BLOG CONTENT DATA =====
 const blogData = {
+    'iit-madras': {
+        title: 'Research Trainee @ IIT Madras: Scaffolds & Stem Cells',
+        image: 'Image/CAD.png',
+        content: `
+            <h3>🧱 Playing LEGO with Life</h3>
+            <p>Spent my summer playing high-stakes LEGO with stem cells and CAD software. The goal? To trick biology into building a functional liver.</p>
+            
+            <p>During my time as a Research Trainee, I authored a 15-page research proposal for a novel stem cell therapy, integrating CRISPR-Cas9 gene editing with custom scaffold designs. We didn't just write about it; we designed the blueprints for the cellular housing.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>📐 The Blueprint (As seen above)</h3>
+            <p>The image above summarizes the core of our scaffold design work using Autodesk Fusion 360. Here is the breakdown of our "cellular apartment complex":</p>
+            
+            <ul>
+                <li><strong>Panel A (The Goal):</strong> Defines the "Design Objective" for our hepatic tissue engineering. We needed a structure that mimics the liver's natural environment—optimizing for nutrient diffusion and cell viability.</li>
+                <li><strong>Panel B (The Model):</strong> Flaunts the polished isometric render of the lattice. This isn't just a pretty picture; it's a calculated biopolymer scaffold designed to support 3D cell culture.</li>
+                <li><strong>Panel C (The Cross-Section):</strong> Cuts to the chase, revealing the internal pore structure. We validated the pore size (100-200 𝜇m) and interconnectivity in silico to ensure that every cell gets its fair share of nutrients (diffusion).</li>
+                <li><strong>Panel D (The Specs):</strong> Proves we did our homework. This table details the material choices, intended printing methods, and the constraints we checked—from "porosity estimated from CAD" to "basic diffusion reasoning."</li>
+            </ul>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🧬 Beyond the Scaffold</h3>
+            <p>It wasn't just about the structure. I also designed 5 sgRNA constructs targeting liver-specific oncogenes using Benchling (achieving >80% on-target efficiency) and mapped out the full FDA/EMA regulatory pathway for a theoretical cell therapy product. Basically, we engineered the future of liver tissue, keeping it strictly GMP-compliant and regulatory-ready.</p>
+        `
+    },
     'crispr': {
         title: 'CRISPR-Cas9 Genome Editing: Advancing Therapeutic Strategies for Ameliorating Hepatocellular Carcinoma',
         image: 'Image/Crispr-Cas9.png',
