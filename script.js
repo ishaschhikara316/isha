@@ -546,6 +546,34 @@ if ('serviceWorker' in navigator) {
 
 // ===== BLOG CONTENT DATA =====
 const blogData = {
+    'drdo': {
+        title: 'Research Trainee @ DIPAS, DRDO: Physiology at the Extremes',
+        image: 'Image/Hypoxia.png',
+        content: `
+            <h3>🏔️ Scaling Physiological Peaks</h3>
+            <p>At the Defence Institute of Physiology and Allied Sciences (DIPAS), DRDO, I didn't just study biology; I investigated survival. My traineeship focused on the physiological mechanisms that allow organisms to endure the thin air of high altitudes—a critical frontier for our defense forces.</p>
+            
+            <p>Under expert supervision, I executed rigorous in vivo studies on a cohort of 50+ Wistar rats to model high-altitude stress adaptations. We weren't just observing; we were generating key physiological datasets (blood gas, lactate) that directly validated the institute's acclimatization protocols.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🧪 Precision in the Lab</h3>
+            <p>Science is only as good as its reproducibility. One of my core achievements was the optimization of the Malondialdehyde (MDA) oxidative stress assay.</p>
+            <ul>
+                <li><strong>The Challenge:</strong> Oxidative stress is a key marker of hypoxic damage, but assays can be fickle.</li>
+                <li><strong>The Solution:</strong> I refined the protocol, processing over 100 tissue samples.</li>
+                <li><strong>The Result:</strong> A 95% reproducibility rate (CV < 5%) and a 15% reduction in reagent waste. Efficient science is better science.</li>
+            </ul>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🫀 From Tissue to Data</h3>
+            <p>My role demanded managing the end-to-end tissue workflow. This meant handling ethical dissections (liver, heart, lung) with precision and processing them all the way to DNA and protein extraction. We achieved high-yield protein recovery (>2 mg/ml), ensuring that our downstream blotting analysis was based on the highest quality samples.</p>
+
+            <h3>🏃‍♂️ The Quantitative Edge</h3>
+            <p>Beyond the wet lab, I conducted Cardiopulmonary Exercise Testing (CPET). We recorded over 200 data points for VO2 max and metabolic thresholds. This data helped us quantify the exact impact of hypoxic pre-conditioning, turning "acclimatization" from a vague concept into a measurable physiological advantage.</p>
+        `
+    },
     'iit-madras': {
         title: 'Research Trainee @ IIT Madras: Scaffolds & Stem Cells',
         image: 'Image/CAD.png',
@@ -640,8 +668,9 @@ function openBlog(blogId) {
     const data = blogData[blogId];
     
     if (data) {
+        const headerImage = data.image ? `<img src="${data.image}" alt="${data.title}" class="modal-header-image">` : '';
         modalBody.innerHTML = `
-            <img src="${data.image}" alt="${data.title}" class="modal-header-image">
+            ${headerImage}
             <h2 class="modal-title">${data.title}</h2>
             <div class="modal-text">
                 ${data.content}
