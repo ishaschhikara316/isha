@@ -596,6 +596,59 @@ const blogData = {
         `
     },
 
+    'differential-expression': {
+        title: 'Hunting Drug Targets: Differential Expression Analysis',
+        image: 'Image/Volcano_Plot.png',
+        content: `
+            <h3>🎯 The Mission: Finding the Bullseye</h3>
+            <p>If we want to cure cancer with precision weapons like CAR-T cells or Antibody-Drug Conjugates (ADCs), we first need a target. We need a protein that is waving a giant flag on the surface of cancer cells but is nowhere to be found on healthy cells.</p>
+            
+            <p>To find these hidden targets, I dove into the <strong>GSE76427 dataset</strong>—a massive transcriptomic library comparing Hepatocellular Carcinoma (HCC) tumors directly against adjacent healthy liver tissue from 115 patients.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🎛️ The Concept: The Volume Knob</h3>
+            <p>Think of your genome as a giant mixing board with 20,000 volume knobs (genes). In cancer, some knobs are cranked up to 11 (Upregulated), while others are muted.</p>
+            <p>I used <strong>R</strong> and the <strong>Limma</strong> statistical package to compare the "volume" of every single gene in the tumor vs. the healthy tissue. We weren't just looking for noise; we were looking for the genes screaming the loudest.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🌋 The "Volcano" of Discovery</h3>
+            <p>This plot is one of the most famous visualizations in bioinformatics. Here is how to read it:</p>
+            
+            <img src="Image/Volcano_Plot.png" alt="Volcano Plot of DEA" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            
+            <ul>
+                <li><strong>Each Dot:</strong> Represents one unique gene.</li>
+                <li><strong>X-Axis (Fold Change):</strong> How much more (Right) or less (Left) the gene is expressed in cancer.</li>
+                <li><strong>Y-Axis (Significance):</strong> How confident we are that this isn't just random luck. The higher the dot, the more "real" the result.</li>
+                <li><strong>The Red Dots:</strong> The "Hits." These are significantly upregulated genes. That labeled dot at the top right? That is our potential target.</li>
+            </ul>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>📦 Validating the Target: PROM1 (CD133)</h3>
+            <p>One candidate stood out: <strong>PROM1</strong>, also known as <strong>CD133</strong>. This isn't just any protein; it is a well-known marker for "Cancer Stem Cells"—the nasty, resilient cells often responsible for relapse.</p>
+            
+            <img src="Image/PROM1_Boxplot.png" alt="Boxplot of PROM1 Expression" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            
+            <p>This Boxplot is the "proof of concept."</p>
+            <ul>
+                <li><strong>Blue Box (Non-Tumor):</strong> Expression is relatively low and consistent.</li>
+                <li><strong>Red Box (Tumor):</strong> Expression shifts significantly higher.</li>
+            </ul>
+            <p>This confirms that CD133 is consistently overexpressed in this patient cohort, making it a viable candidate for targeted therapies that spare healthy liver tissue.</p>
+
+            <h3>💻 The Tech Stack</h3>
+            <div class="card-tags" style="justify-content: flex-start; margin-top: 10px;">
+                <span class="skill-tag">R Language</span>
+                <span class="skill-tag">Limma (Bioconductor)</span>
+                <span class="skill-tag">ggplot2</span>
+                <span class="skill-tag">Transcriptomics</span>
+            </div>
+        `
+    },
+
     'drdo': {
         title: 'Research Trainee @ DIPAS, DRDO: Physiology at the Extremes',
         image: 'Image/Hypoxia.png',
