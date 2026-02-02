@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeParallaxEffects();
     initializeTypewriterEffect();
     initializeBlogListeners();
+    initializeCVModal();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -762,7 +763,45 @@ const blogData = {
             </ul>
         `
     }
-};
+}
+
+// ===== CV MODAL FUNCTIONALITY =====
+function initializeCVModal() {
+    const cvModal = document.getElementById('cv-modal');
+    const viewCvBtn = document.getElementById('view-cv-btn');
+    const closeCvBtn = document.querySelector('.close-cv');
+
+    if (viewCvBtn && cvModal) {
+        viewCvBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            cvModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    if (closeCvBtn) {
+        closeCvBtn.addEventListener('click', function() {
+            cvModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === cvModal) {
+            cvModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cvModal.classList.contains('show')) {
+            cvModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
 // ===== MODAL FUNCTIONALITY =====
 function openBlog(blogId) {
