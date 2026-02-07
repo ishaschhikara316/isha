@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isha - Life Sciences Researcher & Writer</title>
+    <title>Isha Chhikara | Life Sciences Researcher — Molecular Biology, Bioinformatics & CRISPR</title>
+    <meta name="description" content="Isha Chhikara — MSc Life Sciences researcher specialising in CRISPR therapeutics, bioinformatics, and hepatocellular carcinoma target discovery. Seeking fully funded PhD positions.">
+    <meta name="author" content="Isha Chhikara">
+    <meta property="og:title" content="Isha Chhikara | Life Sciences Researcher">
+    <meta property="og:description" content="MSc Life Sciences researcher specialising in CRISPR therapeutics, bioinformatics, and hepatocellular carcinoma target discovery. Portfolio of research projects and publications.">
+    <meta property="og:image" content="Image/Isha.jpeg">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,6 +29,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#research" class="nav-link">Research</a>
                 </li>
                 <li class="nav-item">
                     <a href="#portfolio" class="nav-link">Portfolio</a>
@@ -102,10 +111,30 @@
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary" id="view-cv-btn" style="margin-top: 2rem;">
-                        <i class="fas fa-file-pdf" style="margin-right: 8px;"></i> View CV
-                    </button>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                        <button class="btn btn-primary" id="view-cv-btn">
+                            <i class="fas fa-eye" style="margin-right: 8px;"></i> View CV
+                        </button>
+                        <a href="Isha.pdf" download class="btn btn-secondary">
+                            <i class="fas fa-download" style="margin-right: 8px;"></i> Download CV
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Vision Section -->
+    <section id="research" class="research-vision">
+        <div class="container">
+            <h2 class="section-title">What Drives My Research</h2>
+            <div class="section-divider"></div>
+            <div class="research-content">
+                <p>The liver is one of the most underestimated organs in the body. It regenerates, it detoxifies, it manufactures. And when hepatocellular carcinoma takes hold, it exploits the very machinery that makes the liver remarkable. That contradiction is what pulled me in. My thesis on CRISPR delivery for HCC taught me something I didn't expect: the real bottleneck isn't the gene-editing tool itself, it's getting the payload past a scarred, fibrotic microenvironment. The interesting problems are rarely where you first assume they'll be.</p>
+
+                <p>I started at the bench. At DRDO, I was running oxidative stress assays and processing tissue from hypoxia models. At IIT Madras, I was designing hepatic scaffolds in CAD and writing CRISPR proposals. Somewhere along the way, I realised that the datasets patients generate hold answers you simply cannot find with a pipette. So I taught myself Python and R, built survival analysis pipelines on TCGA data, and used differential expression to hunt for surface targets like CD133. I didn't plan the pivot from wet lab to computational biology. It just followed the questions.</p>
+
+                <p>The questions I keep coming back to are translational ones. You find a gene that's screaming in a volcano plot, but then what? How do you go from a statistically significant hit in a microarray to something a clinician can actually use? How do you validate a target computationally and then prove it works in a living system? That gap between discovery and treatment is where I want to spend my time.</p>
             </div>
         </div>
     </section>
@@ -197,20 +226,56 @@
     <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="container">
-            <h2 class="section-title">Latest from the Blog</h2>
+            <h2 class="section-title">Research Deep Dives</h2>
             <div class="section-divider"></div>
-            <div class="blog-content">
-                <div class="blog-main">
-                    <p class="coming-soon">New articles coming soon! I'm currently working on detailed posts about my research and findings.</p>
+            <div class="blog-grid-full">
+                <div class="blog-card" onclick="openBlog('blog-anglerfish')">
+                    <div class="blog-image"><i class="fas fa-fish blog-icon"></i></div>
+                    <div class="blog-meta">
+                        <span class="blog-category">Biology</span>
+                        <span class="blog-date">2025</span>
+                        <span class="blog-reading-time"><i class="fas fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="blog-title">The Anglerfish Situation: Biology's Most Disturbing Love Story</h3>
+                    <p class="blog-excerpt">Deep-sea romance involves fusing circulatory systems, dissolving your own face, and breaking every rule of vertebrate immunology. It's worse than it sounds.</p>
+                    <span class="blog-read-more">Read More &rarr;</span>
                 </div>
 
-                <aside class="blog-sidebar">
-                    <div class="sidebar-widget">
-                        <h4 class="widget-title">Stay Tuned</h4>
-                        <div class="widget-divider"></div>
-                        <p style="font-size: 0.9rem; color: var(--ivory); opacity: 0.8;">I'm currently preparing several deep dives into life sciences research. Follow my social links to be notified when they go live.</p>
+                <div class="blog-card" onclick="openBlog('blog-liver-regen')">
+                    <div class="blog-image"><i class="fas fa-heartbeat blog-icon"></i></div>
+                    <div class="blog-meta">
+                        <span class="blog-category">Biology</span>
+                        <span class="blog-date">2025</span>
+                        <span class="blog-reading-time"><i class="fas fa-clock"></i> 5 min read</span>
                     </div>
-                </aside>
+                    <h3 class="blog-title">Your Liver is a Wolverine (And You Didn't Even Know)</h3>
+                    <p class="blog-excerpt">Remove 70% of it and it grows back in weeks. The Greeks accidentally got the science right 2,500 years ago. But there's a cruel twist involving cancer.</p>
+                    <span class="blog-read-more">Read More &rarr;</span>
+                </div>
+
+                <div class="blog-card" onclick="openBlog('blog-apoptosis')">
+                    <div class="blog-image"><i class="fas fa-skull-crossbones blog-icon"></i></div>
+                    <div class="blog-meta">
+                        <span class="blog-category">Cancer Biology</span>
+                        <span class="blog-date">2025</span>
+                        <span class="blog-reading-time"><i class="fas fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3 class="blog-title">The Kill Switch Inside Every Cell (That Cancer Learns to Disable)</h3>
+                    <p class="blog-excerpt">Your cells are pre-programmed to self-destruct when things go wrong. Cancer's entire strategy is learning how to cut the wires.</p>
+                    <span class="blog-read-more">Read More &rarr;</span>
+                </div>
+
+                <div class="blog-card" onclick="openBlog('blog-common-cold')">
+                    <div class="blog-image"><i class="fas fa-virus blog-icon"></i></div>
+                    <div class="blog-meta">
+                        <span class="blog-category">Virology</span>
+                        <span class="blog-date">2025</span>
+                        <span class="blog-reading-time"><i class="fas fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="blog-title">Why Scientists Still Can't Cure the Common Cold (But Can Edit Genes)</h3>
+                    <p class="blog-excerpt">We can rewrite DNA, build mRNA vaccines, and grow organs in labs. Rhinovirus still wins every winter. Here's why "easy" diseases aren't easy.</p>
+                    <span class="blog-read-more">Read More &rarr;</span>
+                </div>
             </div>
         </div>
     </section>
@@ -248,7 +313,8 @@
                     </div>
                 </div>
 
-                <form class="contact-form">
+                <!-- To activate: sign up at formspree.io, create a form, and replace YOUR_FORM_ID below -->
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -277,11 +343,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Isha. All rights reserved. | Designed with 💚 for science</p>
+                    <p>&copy; <span id="footer-year">2025</span> Isha. All rights reserved. | Designed with 💚 for science</p>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
+                    <a href="#research">Research</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#blog">Blog</a>
                     <a href="#contact">Contact</a>
@@ -304,6 +371,11 @@
     <div id="cv-modal" class="modal">
         <div class="modal-content cv-modal-content">
             <span class="close-modal close-cv">&times;</span>
+            <div class="cv-modal-actions">
+                <a href="Isha.pdf" download class="btn btn-primary btn-cv-download">
+                    <i class="fas fa-download" style="margin-right: 8px;"></i> Download PDF
+                </a>
+            </div>
             <div class="cv-container">
                 <img src="Image/Isha.jpg" alt="CV" class="cv-image">
             </div>

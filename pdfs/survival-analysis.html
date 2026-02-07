@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaplan-Meier Survival Analysis — Isha Chhikara</title>
+    <link rel="stylesheet" href="print.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Kaplan-Meier Survival Analysis of HIF1A Expression in Hepatocellular Carcinoma</h1>
+    <div class="meta">
+        <span>Isha Chhikara</span> |
+        <span>January 2025</span>
+    </div>
+</div>
+
+<h2>Dataset</h2>
+<p><strong>TCGA-LIHC</strong> (PanCancer Atlas) via cBioPortal. Clinical and mRNA expression data for Liver Hepatocellular Carcinoma patients, stratified by HIF1A expression level.</p>
+
+<h2>Methods</h2>
+<p>Survival modelling performed in <strong>Python 3.14</strong> using Pandas and the Lifelines library. Patients were divided into High and Low HIF1A expression groups via median-split stratification. Overall survival was compared using the <strong>Kaplan-Meier estimator</strong> with a Log-rank test for statistical significance.</p>
+
+<h2>Key Result</h2>
+<div class="two-col">
+    <div class="text">
+        <div class="stats">
+            <div class="stat-box">
+                <strong>p = 0.0549</strong>
+                Log-rank test (borderline significance)
+            </div>
+            <div class="stat-box">
+                <strong>Low HIF1A</strong>
+                Associated with longer overall survival
+            </div>
+        </div>
+        <h2>Findings</h2>
+        <ul>
+            <li>Log-rank p = 0.0549 — borderline statistical significance suggesting a real biological signal</li>
+            <li>Low HIF1A expression associated with longer overall survival in HCC patients</li>
+            <li>Supports HIF1A as a prognostic marker for hepatocellular carcinoma</li>
+            <li>Median survival difference visible between expression groups, with clear curve separation</li>
+        </ul>
+    </div>
+    <div class="figure">
+        <img src="../Image/HIF1A_Academic_Survival.png" alt="Kaplan-Meier survival curve for HIF1A expression in HCC">
+        <div class="figure-caption">Figure 1. Kaplan-Meier survival curves for High vs Low HIF1A expression (TCGA-LIHC).</div>
+    </div>
+</div>
+
+<h2>Limitations</h2>
+<ul>
+    <li>Borderline significance (p = 0.0549) — a larger cohort is needed for definitive validation of the prognostic association.</li>
+    <li>Median-split stratification is simplistic; quartile-based or continuous Cox regression analysis was not performed.</li>
+</ul>
+
+<div class="footer-link">
+    <strong>Code:</strong> <a href="https://github.com/ishaschhikara316/TCGA-Survival-Analysis">github.com/ishaschhikara316/TCGA-Survival-Analysis</a>
+    &nbsp;&bull;&nbsp;
+    <strong>Contact:</strong> isha.s.chhikara316@gmail.com
+</div>
+
+</body>
+</html>

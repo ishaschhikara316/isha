@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTypewriterEffect();
     initializeBlogListeners();
     initializeCVModal();
+    // Dynamic footer year
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // ===== NAVIGATION FUNCTIONALITY =====
@@ -293,24 +296,16 @@ function initializeContactForm() {
     const contactForm = document.querySelector('.contact-form');
     const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
 
-    // Enhanced form validation and submission
+    // Form submission via Formspree
     contactForm?.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Add loading state
-        const submitBtn = this.querySelector('.btn-submit');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        // Simulate form submission
-        setTimeout(() => {
-            // Show success message
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            this.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+        const action = this.getAttribute('action');
+        // If Formspree is not configured yet, show a message
+        if (!action || action.includes('YOUR_FORM_ID')) {
+            e.preventDefault();
+            showNotification('Contact form is being set up. Please email directly for now.', 'info');
+            return;
+        }
+        // Otherwise let the form submit naturally to Formspree
     });
 
     // Real-time form validation
@@ -334,7 +329,7 @@ function validateField(field) {
 
     // Email validation
     if (field.type === 'email' && value) {
-        const emailRegex = /^[^S@]+@[^S@]+\.[^S@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
             fieldGroup.classList.add('error');
             return false;
@@ -594,6 +589,16 @@ const blogData = {
                 <span class="skill-tag">cBioPortal Data</span>
             </div>
             <p style="font-size: 0.9em; margin-top: 15px; font-style: italic;">Data Source: Liver Hepatocellular Carcinoma (TCGA, PanCancer Atlas) via cBioPortal.</p>
+
+            <div class="modal-section-divider"></div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="pdfs/survival-analysis.html" target="_blank" class="btn btn-primary" style="color: var(--dark-royal-green); border-color: var(--dark-royal-green);">
+                    <i class="fas fa-file-alt" style="margin-right: 8px;"></i> Download 1-Page Summary
+                </a>
+                <a href="https://github.com/ishaschhikara316/TCGA-Survival-Analysis" target="_blank" class="btn btn-primary" style="color: var(--dark-royal-green); border-color: var(--dark-royal-green);">
+                    <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                </a>
+            </div>
         `
     },
 
@@ -647,12 +652,22 @@ const blogData = {
                 <span class="skill-tag">ggplot2</span>
                 <span class="skill-tag">Transcriptomics</span>
             </div>
+
+            <div class="modal-section-divider"></div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="pdfs/differential-expression.html" target="_blank" class="btn btn-primary" style="color: var(--dark-royal-green); border-color: var(--dark-royal-green);">
+                    <i class="fas fa-file-alt" style="margin-right: 8px;"></i> Download 1-Page Summary
+                </a>
+                <a href="https://github.com/ishaschhikara316/HCC-Differential-Expression" target="_blank" class="btn btn-primary" style="color: var(--dark-royal-green); border-color: var(--dark-royal-green);">
+                    <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                </a>
+            </div>
         `
     },
 
     'drdo': {
         title: 'Research Trainee @ DIPAS, DRDO: Physiology at the Extremes',
-        image: 'Image/Hypoxia.png',
+        image: 'Image/Hypoxia.jpg',
         content: `
             <h3>🏔️ Scaling Physiological Peaks</h3>
             <p>At the Defence Institute of Physiology and Allied Sciences (DIPAS), DRDO, I didn't just study biology; I investigated survival. My traineeship focused on the physiological mechanisms that allow organisms to endure the thin air of high altitudes—a critical frontier for our defense forces.</p>
@@ -680,7 +695,7 @@ const blogData = {
     },
     'iit-madras': {
         title: 'Research Trainee @ IIT Madras: Scaffolds & Stem Cells',
-        image: 'Image/CAD.png',
+        image: 'Image/CAD.jpg',
         content: `
             <h3>🧱 Playing LEGO with Life</h3>
             <p>Spent my summer playing high-stakes LEGO with stem cells and CAD software. The goal? To trick biology into building a functional liver.</p>
@@ -707,7 +722,7 @@ const blogData = {
     },
     'crispr': {
         title: 'CRISPR-Cas9 Genome Editing: Advancing Therapeutic Strategies for Ameliorating Hepatocellular Carcinoma',
-        image: 'Image/Crispr-Cas9.png',
+        image: 'Image/Crispr-Cas9.jpg',
         content: `
             <p>This diagram summarizes my 70-page thesis into a single glance. To explain what this figure depicts, one can describe it as follows:</p>
             
@@ -762,6 +777,233 @@ const blogData = {
                 <li><strong>Alternative Vectors:</strong> Swapping the delivery van for a tank (viral vectors or tougher polymers) that can crash through the construction site.</li>
             </ul>
         `
+    },
+
+    'blog-anglerfish': {
+        title: 'The Anglerfish Situation: Biology\'s Most Disturbing Love Story',
+        readingTime: '4 min read',
+        content: `
+            <h3>🐟 Meet the Worst Boyfriend in Nature</h3>
+            <p>Somewhere in the pitch-black deep sea, roughly 1,000 metres below the surface where sunlight never reaches, one of biology's most unsettling romances is playing out. A tiny male anglerfish, barely the size of your fingernail, bumps into a female fifty times his size. He bites into her belly. And then he never lets go.</p>
+
+            <p>What happens next makes every horror movie look tame. His jaw fuses into her skin. His blood vessels merge with hers. His eyes degenerate, his internal organs dissolve, and he becomes a permanent parasitic lump on her body. His only remaining function? Producing sperm on demand. He is, in the most literal biological sense, absorbed.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🌊 Why This Happens</h3>
+            <p>Before you judge the anglerfish too harshly, consider their real estate. The deep ocean is <strong>enormous</strong> and almost completely empty. Population densities are so low that finding a mate is like finding a specific person in a country the size of Russia, in the dark, with no phone. If you're lucky enough to bump into a compatible partner, evolution says: <em>do not let go</em>.</p>
+
+            <p>So natural selection favoured males who could permanently attach. Over millions of years, males shrank. Females grew. The arrangement became obligate in some species. The male gets a lifetime food supply through her blood; the female gets a built-in sperm bank she never has to search for again. Romantically horrifying. Evolutionarily elegant.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🔬 The Immunology Plot Twist</h3>
+            <p>Here's where it gets genuinely wild from a biomedical perspective. When the male fuses with the female, his tissue becomes <strong>her tissue</strong>. In any other vertebrate on the planet, this would trigger immediate immune rejection. Your body recognises foreign tissue and destroys it. That's why organ transplants require immunosuppressive drugs. That's why skin grafts from strangers don't take.</p>
+
+            <p>So how does the female anglerfish accept what is essentially a permanent tissue graft from a genetically distinct individual?</p>
+
+            <p>In 2020, researchers sequenced the genomes of multiple anglerfish species and found something extraordinary. Species that practise sexual parasitism have <strong>broken adaptive immune systems</strong>. They've lost functional genes for:</p>
+            <ul>
+                <li><strong>MHC-I and MHC-II molecules</strong> (the "identity cards" that let immune cells distinguish self from non-self)</li>
+                <li><strong>T-cell receptors</strong> (the soldiers that would normally attack foreign tissue)</li>
+                <li><strong>Antibody genes</strong> (critical components of adaptive immunity)</li>
+            </ul>
+
+            <p>They are, as far as we know, the <strong>only vertebrates that have naturally dismantled their own adaptive immune system</strong> and survived. They rely entirely on innate immunity, the older, less specific branch of immune defence.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🧬 Why This Matters Beyond the Deep Sea</h3>
+            <p>Transplant rejection remains one of the biggest challenges in modern medicine. Patients who receive donated organs take immunosuppressive drugs for life, leaving them vulnerable to infections and cancers. If we could understand <em>exactly</em> how anglerfish tolerate foreign tissue without these drugs, without getting infections, without developing tumours, it could reshape transplant immunology.</p>
+
+            <p>It also raises a fascinating evolutionary question: how do you survive without adaptive immunity? Every other vertebrate needs it. Anglerfish apparently don't. What does that tell us about the deep sea as an environment, and about the flexibility of immune systems we thought were non-negotiable?</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💡 The Takeaway</h3>
+            <p>Biology's strangest stories often hide its most important lessons. A parasitic mating strategy in a fish most people will never see contains clues to problems that affect millions of transplant patients. The deep sea didn't just produce a disturbing love story. It produced a natural experiment in immune tolerance that no lab could have designed.</p>
+
+            <p>Sometimes the best research questions are hiding in the weirdest organisms.</p>
+        `
+    },
+
+    'blog-liver-regen': {
+        title: 'Your Liver is a Wolverine (And You Didn\'t Even Know)',
+        readingTime: '5 min read',
+        content: `
+            <h3>🦸 The Organ That Refuses to Die</h3>
+            <p>If you could pick one superpower for an organ, regeneration would be a solid choice. Your liver already has it. A surgeon can remove up to <strong>70% of a healthy human liver</strong>, and within weeks, the remaining tissue will proliferate and restore the organ to its original mass. Not its original shape, but its original functional capacity. No other solid organ in the human body comes close.</p>
+
+            <p>Your skin heals wounds. Your bones knit fractures. But your liver can lose the majority of itself and just... grow back. It's the closest thing to a biological superpower that mammals have.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🏛️ The Greeks Knew (Sort Of)</h3>
+            <p>The myth of Prometheus is one of the oldest stories in Western literature. Zeus punished Prometheus for giving fire to humanity by chaining him to a rock and sending an eagle to eat his liver every day. Every night, the liver grew back, and the torture repeated.</p>
+
+            <p>Here's the remarkable part: the ancient Greeks had <strong>no formal knowledge of hepatic regeneration</strong>. No microscopes, no cell biology, no concept of mitosis. Yet they chose the liver, specifically, as the organ that regenerates. Whether this was a lucky guess, folk observation from animal butchering, or genuine empirical knowledge passed down through oral tradition, nobody knows for certain. But they were right.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>⚙️ How It Actually Works</h3>
+            <p>Liver regeneration is not stem-cell driven, and that surprises most people. Unlike your gut lining or your blood cells, the liver doesn't rely on a reserve population of stem cells waiting to be activated. Instead, mature <strong>hepatocytes</strong>, the fully differentiated workhorse cells of the liver, re-enter the cell cycle and start dividing.</p>
+
+            <p>Think about that. These are adult, specialised cells that have been quietly doing their metabolic jobs (detoxification, bile production, protein synthesis) and suddenly they flip a switch and start behaving like embryonic cells again. The process involves a cascade of signals:</p>
+            <ul>
+                <li><strong>Cytokines</strong> like TNF-alpha and IL-6 kick-start the "priming" phase</li>
+                <li><strong>Growth factors</strong> like HGF (hepatocyte growth factor) and EGF drive proliferation</li>
+                <li><strong>Metabolic signals</strong> (bile acids, insulin) regulate the pace</li>
+            </ul>
+
+            <p>Within 24 to 72 hours of partial hepatectomy in animal models, hepatocytes are actively dividing. By 7 to 10 days, liver mass is substantially restored.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🛑 The Stop Signal Mystery</h3>
+            <p>Here's what keeps researchers up at night. The liver knows when to <strong>stop</strong> growing. It doesn't just keep proliferating indefinitely. It restores itself to approximately the correct mass for the body it's in, and then the hepatocytes go quiet again. They exit the cell cycle and return to their normal differentiated functions.</p>
+
+            <p>How does it "know" when it's big enough? The leading hypothesis involves a concept called the <strong>"hepatostat"</strong>, a sensing mechanism that monitors the ratio of liver mass to body mass, possibly through the flux of bile acids or portal blood flow. But the precise molecular switch that says "okay, that's enough" remains one of the open questions in regenerative biology.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🔥 The Cruel Irony: Regeneration Meets Cancer</h3>
+            <p>This is where the story takes a dark turn, and it's the reason I study hepatocellular carcinoma.</p>
+
+            <p>The liver's extraordinary regenerative capacity is a <strong>double-edged sword</strong>. In a healthy liver, the regeneration machinery is tightly controlled. But in a chronically damaged liver, one scarred by hepatitis B, hepatitis C, alcohol abuse, or fatty liver disease, the brakes start to fail.</p>
+
+            <p>Chronic inflammation forces hepatocytes into repeated cycles of death and regeneration. Each round of cell division is another opportunity for DNA replication errors. Combine that with an increasingly fibrotic microenvironment, oxidative stress, and epigenetic changes, and you have a recipe for cancer.</p>
+
+            <p><strong>Hepatocellular carcinoma</strong> is the 6th most common cancer worldwide and the 3rd leading cause of cancer death. The organ with the best regeneration in the human body is also one of the most common sites for lethal cancer. The very machinery that makes the liver resilient is co-opted by cancer to fuel its own growth.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💡 Why This Matters</h3>
+            <p>Understanding liver regeneration isn't just an academic exercise. It's the foundation for understanding why liver cancer happens, how to catch it earlier, and potentially how to harness regenerative pathways for therapeutic benefit without tipping into malignancy. The liver's superpower is real. But like every good superpower story, it comes with a cost.</p>
+        `
+    },
+
+    'blog-apoptosis': {
+        title: 'The Kill Switch Inside Every Cell (That Cancer Learns to Disable)',
+        readingTime: '5 min read',
+        content: `
+            <h3>💣 Your Cells Are Designed to Self-Destruct</h3>
+            <p>Right now, as you read this, millions of your cells are killing themselves. On purpose. In an orderly, controlled, highly regulated fashion. And that's a good thing.</p>
+
+            <p>This process is called <strong>apoptosis</strong> (pronounced "ay-pop-TOE-sis"), and it is one of the most important biological programs in your body. It's the reason your fingers are separated instead of webbed. It's the reason your immune system doesn't attack you. And when it breaks, it's one of the primary reasons cancer exists.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🛡️ The Scale of Daily Damage</h3>
+            <p>Your DNA is under constant assault. Every single cell in your body experiences an estimated <strong>10,000 to 100,000 DNA damage events per day</strong>. Ultraviolet light, reactive oxygen species from normal metabolism, errors during DNA replication, environmental mutagens. The genome is not sitting in a vault; it's taking hits around the clock.</p>
+
+            <p>Most of this damage gets repaired. You have an entire army of DNA repair enzymes (base excision repair, nucleotide excision repair, mismatch repair, homologous recombination) that work constantly to patch things up. But sometimes the damage is too severe, or it accumulates faster than the repair machinery can handle.</p>
+
+            <p>When that happens, the cell faces a choice: try to limp along with damaged DNA, or activate the kill switch.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>👤 The Guardian: p53</h3>
+            <p>Meet <strong>TP53</strong>, the gene that encodes the p53 protein, often called the "Guardian of the Genome." When DNA damage is detected, p53 activates and does a quick assessment. Can this damage be repaired? If yes, p53 pauses the cell cycle to give repair enzymes time to work. If no, p53 triggers apoptosis. The cell dismantles itself from the inside out.</p>
+
+            <p>During apoptosis, the cell doesn't burst open and spill its contents everywhere (that's <strong>necrosis</strong>, and it causes inflammation). Instead, it shrinks. Its chromatin condenses. Its DNA is sliced into neat fragments by enzymes called <strong>caspases</strong>. The cell packages itself into tidy little membrane-bound parcels called "apoptotic bodies," which are quietly consumed by neighbouring cells and macrophages. No mess. No inflammation. Just a clean exit.</p>
+
+            <p>It's cellular seppuku, performed with surgical precision.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🦠 How Cancer Cuts the Wires</h3>
+            <p>Cancer is, at its core, a disease of broken control systems. And disabling apoptosis is one of the first things a developing tumour needs to accomplish. A cancer cell that can still self-destruct is a cancer cell that won't survive long enough to become a tumour.</p>
+
+            <p>Here's how tumours do it:</p>
+            <ul>
+                <li><strong>p53 mutations:</strong> TP53 is the most commonly mutated gene in human cancer, altered in roughly 50% of all tumours. When p53 is broken, the guardian is blind. Damaged cells that should die keep dividing instead.</li>
+                <li><strong>BCL-2 overexpression:</strong> The BCL-2 family of proteins regulate the mitochondrial pathway of apoptosis. Some members (like BCL-2 itself) are anti-apoptotic; they block the death signal. Many cancers crank up BCL-2 production, effectively jamming the kill switch in the "off" position.</li>
+                <li><strong>Death receptor downregulation:</strong> Cells have surface receptors (like Fas and TRAIL receptors) that can receive external "kill" signals from immune cells. Some cancers simply stop making these receptors, becoming deaf to outside death orders.</li>
+            </ul>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>⏳ The Hayflick Limit: The Other Safety Net</h3>
+            <p>Apoptosis isn't the only self-destruct mechanism. Normal cells also have a <strong>built-in expiration date</strong> called the Hayflick Limit. Every time a cell divides, the protective caps on its chromosomes, called <strong>telomeres</strong>, get a little shorter. After roughly 50 to 70 divisions, the telomeres are critically short, and the cell enters senescence (permanent retirement) or triggers apoptosis.</p>
+
+            <p>Cancer bypasses this too. About 85-90% of cancers reactivate an enzyme called <strong>telomerase</strong>, which rebuilds telomeres after each division. The expiration date gets ripped off. The cell becomes, in principle, immortal.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💊 Re-enabling the Kill Switch</h3>
+            <p>Some of the most exciting cancer therapies today aren't trying to kill cancer cells directly. Instead, they're trying to <strong>re-enable the kill switch</strong> that cancer disabled.</p>
+            <ul>
+                <li><strong>BH3 mimetics</strong> (like Venetoclax): These drugs mimic the pro-apoptotic BH3 proteins and block BCL-2, forcing cancer cells to re-engage their apoptotic machinery. Venetoclax has been transformative for certain blood cancers.</li>
+                <li><strong>MDM2 inhibitors:</strong> In cancers where p53 is intact but suppressed by its negative regulator MDM2, these drugs free p53 to do its job again.</li>
+                <li><strong>TRAIL receptor agonists:</strong> Synthetic molecules that activate death receptors on cancer cells, bypassing the internal wiring entirely.</li>
+            </ul>
+
+            <p>The logic is elegant: you don't need to invent a new way to kill cancer. The cell already knows how to kill itself. You just need to remind it.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💡 The Takeaway</h3>
+            <p>Every cell in your body is one broken safety check away from becoming cancerous. The fact that cancer is relatively rare, given the number of cells and the rate of DNA damage, is a testament to how robust these self-destruct systems are. And when they fail, understanding exactly <em>how</em> they fail is the key to fixing them.</p>
+        `
+    },
+
+    'blog-common-cold': {
+        title: 'Why Scientists Still Can\'t Cure the Common Cold (But Can Edit Genes)',
+        readingTime: '4 min read',
+        content: `
+            <h3>🤧 The Embarrassing Gap in Modern Medicine</h3>
+            <p>Consider the state of biomedical science in 2025. We can edit specific letters in the human genome using CRISPR. We developed mRNA vaccines against a novel coronavirus in under a year. We can grow miniature organs from stem cells in a dish. We have immunotherapies that cure previously terminal cancers.</p>
+
+            <p>And yet, rhinovirus, the most common cause of the common cold, still makes billions of people miserable every single year. No cure. No vaccine. Not even a particularly good treatment beyond "rest, fluids, and wait."</p>
+
+            <p>How is that possible?</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🎭 The Problem of 160 Faces</h3>
+            <p>The first and biggest obstacle is <strong>antigenic diversity</strong>. When we say "the common cold," we're not talking about one virus. Rhinovirus alone has over <strong>160 known serotypes</strong>, and that's before you count the coronaviruses (yes, some cause colds), adenoviruses, parainfluenza viruses, and respiratory syncytial virus that also produce cold-like symptoms.</p>
+
+            <p>Each serotype has a slightly different surface protein profile. An antibody that neutralises rhinovirus serotype 14 does essentially nothing against serotype 72. Immunity to one cold doesn't protect you from the next one, because the next one is likely a different serotype entirely.</p>
+
+            <p>Compare this to measles. Measles virus has <strong>one serotype</strong>. One vaccine covers all of it. One infection gives lifelong immunity. That's why we can vaccinate against measles and not against the common cold.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>📍 The Location Problem</h3>
+            <p>Rhinovirus infects the <strong>upper respiratory tract</strong>: your nose, sinuses, and throat. This creates a pharmacological headache. Systemic drugs (pills, injections) are designed to reach the bloodstream, but the upper respiratory mucosa isn't richly perfused in a way that makes drug delivery easy. Nasal sprays can reach the surface, but penetrating the mucus layer and maintaining therapeutic concentrations is harder than it sounds.</p>
+
+            <p>The virus also replicates <strong>fast</strong>. By the time you feel symptoms, the viral load is already near its peak. Antiviral drugs work best when given early, ideally before symptoms appear. But nobody takes medicine for a cold they don't have yet.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🔥 The Plot Twist: You're Doing It to Yourself</h3>
+            <p>Here's the part that surprises most people. The runny nose, the sore throat, the congestion, the sneezing? <strong>That's not the virus.</strong> That's your immune system.</p>
+
+            <p>Rhinovirus itself causes relatively little direct tissue damage. The symptoms you experience are almost entirely the result of your inflammatory immune response: histamine release, cytokine production, vasodilation, increased mucus secretion. Your body is waging war, and you're caught in the crossfire.</p>
+
+            <p>This is why antihistamines and anti-inflammatory drugs provide some symptomatic relief. They're not fighting the virus; they're dampening your own immune overreaction. It also explains why immunocompromised patients sometimes have <em>milder</em> cold symptoms. Fewer immune soldiers means less collateral damage.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💉 Why Not Just Make a Vaccine?</h3>
+            <p>People ask this constantly, and the answer comes down to a cost-benefit calculation. A rhinovirus vaccine would need to cover dozens of serotypes to be useful (a monovalent vaccine covering one serotype would prevent maybe 1-2% of colds). Multivalent vaccines exist, but a 160-valent vaccine is a manufacturing and regulatory nightmare.</p>
+
+            <p>More importantly, the common cold is <strong>mild</strong>. It lasts a week. It almost never kills healthy adults. The risk-benefit ratio for an aggressive vaccination program against a self-limiting illness doesn't add up, especially when the side effects of the vaccine might be comparable to the disease itself.</p>
+
+            <p>Contrast this with COVID-19, which had a significant mortality rate, overwhelmed hospitals, and caused long-term complications. The urgency justified the investment. Rhinovirus simply doesn't generate that urgency, even though its cumulative economic impact (missed work, healthcare visits, over-the-counter spending) runs into billions annually.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>🧩 The Broader Lesson</h3>
+            <p>The common cold teaches us something important about how we think about disease. We assume that "simple" diseases should be easy to solve and "complex" ones should be hard. But complexity and difficulty don't always correlate.</p>
+
+            <p>Editing a gene with CRISPR is conceptually complex but technically tractable: one target, one mechanism, one outcome to measure. Curing the common cold requires simultaneously solving antigenic diversity, mucosal drug delivery, rapid viral replication, immune-mediated symptoms, and the economics of treating a non-lethal illness. The "simple" cold is actually a harder problem than gene editing, because it's not one problem. It's five problems stacked on top of each other.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>💡 The Takeaway</h3>
+            <p>Next time you're sniffling through a box of tissues and wondering why we can split atoms but can't fix this, remember: the cold isn't unsolved because scientists aren't smart enough. It's unsolved because it's a problem where biology, pharmacology, immunology, virology, and economics all collide, and none of them are on your side. Some of the most "everyday" problems in medicine are the hardest ones to crack.</p>
+        `
     }
 }
 
@@ -811,9 +1053,11 @@ function openBlog(blogId) {
     
     if (data) {
         const headerImage = data.image ? `<img src="${data.image}" alt="${data.title}" class="modal-header-image">` : '';
+        const readingTime = data.readingTime ? `<div class="modal-reading-time"><i class="fas fa-clock"></i> ${data.readingTime}</div>` : '';
         modalBody.innerHTML = `
             ${headerImage}
             <h2 class="modal-title">${data.title}</h2>
+            ${readingTime}
             <div class="modal-text">
                 ${data.content}
             </div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Expression Analysis — Isha Chhikara</title>
+    <link rel="stylesheet" href="print.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Differential Expression Analysis: Identifying PROM1 (CD133) as a Surface Target in Hepatocellular Carcinoma</h1>
+    <div class="meta">
+        <span>Isha Chhikara</span> |
+        <span>January 2025</span>
+    </div>
+</div>
+
+<h2>Dataset</h2>
+<p><strong>GSE76427</strong> — 115 patients, HCC tumours vs adjacent healthy liver tissue. Illumina HumanHT-12 V4.0 microarray platform (GEO/NCBI).</p>
+
+<h2>Methods</h2>
+<p>Analysis performed in <strong>R</strong> using the <strong>Limma</strong> package (Bioconductor). Differential expression was computed with empirical Bayes moderated t-statistics. Multiple testing correction via Benjamini-Hochberg FDR. Significance thresholds: |logFC| &gt; 0.5 and adj.P.Val &lt; 0.05.</p>
+
+<h2>Key Results</h2>
+<div class="two-col">
+    <div class="text">
+        <div class="stats">
+            <div class="stat-box">
+                <strong>logFC = 0.57</strong>
+                PROM1 upregulated in tumour
+            </div>
+            <div class="stat-box">
+                <strong>FDR = 0.0013</strong>
+                t-statistic = 3.68
+            </div>
+        </div>
+        <h2>Findings</h2>
+        <ul>
+            <li><strong>PROM1 (CD133)</strong> identified as a significant surface target: logFC = 0.57, FDR = 0.0013, t = 3.68</li>
+            <li>CD133 is a known cancer stem cell marker — validates therapeutic potential for ADCs and CAR-T approaches</li>
+            <li>Consistent upregulation across the patient cohort confirmed via boxplot analysis</li>
+        </ul>
+    </div>
+    <div class="figure">
+        <img src="../Image/Volcano_Plot.png" alt="Volcano plot showing differentially expressed genes in HCC">
+        <div class="figure-caption">Figure 1. Volcano plot of DEA results. Red: significantly upregulated genes. PROM1 highlighted.</div>
+    </div>
+</div>
+
+<div class="figure-full" style="text-align: center; margin: 0.4rem 0;">
+    <img src="../Image/PROM1_Boxplot.png" alt="Boxplot of PROM1 expression in tumour vs non-tumour" style="max-width: 55%;">
+    <div class="figure-caption">Figure 2. PROM1 expression: Non-Tumour (blue) vs Tumour (red), confirming consistent overexpression.</div>
+</div>
+
+<h2>Limitations</h2>
+<ul>
+    <li>Single dataset — no independent validation cohort (e.g., TCGA-LIHC RNA-seq) was used for cross-validation.</li>
+    <li>Microarray platform; RNA-seq would provide more granular expression data and isoform-level resolution.</li>
+</ul>
+
+<div class="footer-link">
+    <strong>Code:</strong> <a href="https://github.com/ishaschhikara316/HCC-Differential-Expression">github.com/ishaschhikara316/HCC-Differential-Expression</a>
+    &nbsp;&bull;&nbsp;
+    <strong>Contact:</strong> isha.s.chhikara316@gmail.com
+</div>
+
+</body>
+</html>
