@@ -781,6 +781,7 @@ const blogData = {
 
     'blog-anglerfish': {
         title: 'The Anglerfish Situation: Biology\'s Most Disturbing Love Story',
+        image: 'Image/Angler_Fish.png',
         readingTime: '4 min read',
         content: `
             <h3>🐟 Meet the Worst Boyfriend in Nature</h3>
@@ -829,6 +830,7 @@ const blogData = {
 
     'blog-liver-regen': {
         title: 'Your Liver is a Wolverine (And You Didn\'t Even Know)',
+        image: 'Image/Liver_Wolverine.png',
         readingTime: '5 min read',
         content: `
             <h3>🦸 The Organ That Refuses to Die</h3>
