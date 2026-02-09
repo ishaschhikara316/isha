@@ -886,6 +886,7 @@ const blogData = {
 
     'blog-apoptosis': {
         title: 'The Kill Switch Inside Every Cell (That Cancer Learns to Disable)',
+        image: 'Image/cancer.jpg',
         readingTime: '5 min read',
         content: `
             <h3>💣 Your Cells Are Designed to Self-Destruct</h3>
