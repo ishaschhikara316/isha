@@ -683,6 +683,141 @@ p {
     color: var(--subtle-gold);
 }
 
+/* Publications Section */
+.publications {
+    background: var(--light-beige);
+    padding: var(--section-padding);
+    color: var(--dark-text);
+}
+
+.publications .section-title {
+    color: var(--dark-royal-green);
+}
+
+.publications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.publication-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    border-left: 4px solid var(--subtle-gold);
+    box-shadow: var(--soft-shadow);
+    cursor: pointer;
+    transition: var(--glow-transition);
+    position: relative;
+}
+
+.publication-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pub-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.status-prep {
+    background: rgba(201, 164, 65, 0.15);
+    color: #8B6914;
+    border: 1px solid rgba(201, 164, 65, 0.4);
+}
+
+.status-submitted {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563EB;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-published {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16A34A;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.pub-title {
+    color: var(--dark-royal-green);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.pub-authors {
+    color: #666;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.pub-metric {
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pub-metric i {
+    color: var(--subtle-gold);
+}
+
+.pub-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--smooth-transition);
+    cursor: pointer;
+    background: var(--dark-royal-green);
+    color: var(--ivory);
+    border: 1px solid var(--dark-royal-green);
+}
+
+.pub-btn:hover {
+    background: var(--deep-blood-red);
+    border-color: var(--deep-blood-red);
+    color: #fff;
+}
+
+.pub-btn-abstract {
+    background: transparent;
+    color: var(--dark-royal-green);
+    border: 1px solid var(--dark-royal-green);
+}
+
+.pub-btn-abstract:hover {
+    background: var(--dark-royal-green);
+    color: var(--ivory);
+}
+
+@media (max-width: 768px) {
+    .publications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Blog Section */
 .blog {
     background: var(--maroon);
@@ -701,6 +836,63 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
+}
+
+.blog-grid-featured {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.blog-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+}
+
+.blog-card-compact {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.blog-card-compact .blog-excerpt {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.blog-card-compact .blog-title {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.blog-card-compact .blog-read-more {
+    white-space: nowrap;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.blog-compact-icon {
+    font-size: 1.5rem;
+    color: var(--subtle-gold);
+    flex-shrink: 0;
+}
+
+.blog-compact-content {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .blog-grid-compact {
+        grid-template-columns: 1fr;
+    }
+    .blog-card-compact {
+        flex-wrap: wrap;
+    }
 }
 
 .blog-grid {
@@ -1362,12 +1554,835 @@ textarea:focus {
         margin: 10% auto;
         width: 95%;
     }
-    
+
     .modal-title {
         font-size: 1.8rem;
     }
-    
+
     #modal-body {
         padding: 20px;
     }
+}
+
+/* ===== THEME TOGGLE BUTTON (Anglerfish) ===== */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--subtle-gold);
+    background: transparent;
+    color: var(--subtle-gold);
+    cursor: pointer;
+    transition: var(--smooth-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+.anglerfish-icon {
+    transition: var(--smooth-transition);
+}
+
+.anglerfish-icon {
+    overflow: visible;
+}
+
+.theme-toggle .esca {
+    fill: currentColor;
+    opacity: 0.45;
+    transition: opacity 0.4s ease, filter 0.4s ease, fill 0.4s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(139, 0, 0, 0.5);
+    border-color: var(--deep-blood-red);
+    color: var(--deep-blood-red);
+}
+
+body.dark-mode .theme-toggle {
+    border-color: #00d4ff;
+    color: #00d4ff;
+}
+
+body.dark-mode .theme-toggle .esca {
+    opacity: 1;
+    fill: #00ffcc;
+    filter: drop-shadow(0 0 4px #00ffcc) drop-shadow(0 0 8px #00d4ff);
+    animation: esca-glow 2s ease-in-out infinite;
+}
+
+body.dark-mode .theme-toggle:hover {
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+    border-color: #00d4ff;
+    color: #fff;
+}
+
+body.dark-mode .theme-toggle:hover .esca {
+    filter: drop-shadow(0 0 6px #00ffcc) drop-shadow(0 0 12px #00d4ff) drop-shadow(0 0 18px #00ffcc);
+}
+
+@keyframes esca-glow {
+    0%, 100% {
+        fill: #00ffcc;
+        filter: drop-shadow(0 0 4px #00ffcc) drop-shadow(0 0 8px #00d4ff);
+    }
+    50% {
+        fill: #88ff88;
+        filter: drop-shadow(0 0 6px #88ff88) drop-shadow(0 0 12px #00ffcc);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        position: relative;
+    }
+    .theme-toggle {
+        order: 2;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    .hamburger {
+        order: 3;
+    }
+}
+
+/* ===== JELLYFISH DECORATION ===== */
+.jellyfish-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    transition: opacity 0.8s ease, filter 0.8s ease;
+    color: var(--subtle-gold);
+}
+
+.jellyfish-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.jellyfish-hero {
+    right: 5%;
+    top: 15%;
+    width: 300px;
+    height: 450px;
+}
+
+.jellyfish-research {
+    left: 3%;
+    top: 10%;
+    width: 200px;
+    height: 300px;
+    transform: rotate(15deg);
+}
+
+.jellyfish-contact {
+    right: 5%;
+    bottom: 10%;
+    width: 150px;
+    height: 225px;
+    transform: scaleX(-1);
+}
+
+/* Parent sections need relative positioning for organism decorations */
+.hero, .research-vision, .contact, .about, .publications, .portfolio, .blog {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Comb row animations */
+.comb-row {
+    animation: comb-shimmer 4s ease-in-out infinite;
+    animation-delay: calc(var(--row) * 0.4s);
+}
+
+/* Jellyfish floating animation — slow vertical bob */
+.jellyfish-decoration {
+    animation: jellyfish-float 6s ease-in-out infinite;
+}
+
+.jelly-tentacle {
+    animation: tentacle-trail 5s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.jelly-tentacle:nth-child(2) {
+    animation-duration: 6s;
+    animation-delay: 0.8s;
+}
+
+.jelly-tentacle:nth-child(3) {
+    animation-duration: 7s;
+    animation-delay: 1.6s;
+}
+
+@keyframes jellyfish-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Override float for rotated/flipped jellyfish so transform composes */
+.jellyfish-research {
+    animation: jellyfish-float-rotated 6s ease-in-out infinite;
+}
+
+@keyframes jellyfish-float-rotated {
+    0%, 100% { transform: rotate(15deg) translateY(0); }
+    50% { transform: rotate(15deg) translateY(-8px); }
+}
+
+.jellyfish-contact {
+    animation: jellyfish-float-flipped 6s ease-in-out infinite;
+}
+
+@keyframes jellyfish-float-flipped {
+    0%, 100% { transform: scaleX(-1) translateY(0); }
+    50% { transform: scaleX(-1) translateY(-8px); }
+}
+
+@keyframes comb-shimmer {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes comb-iridescence {
+    0%   { stroke: #00ffff; }
+    17%  { stroke: #00ff88; }
+    33%  { stroke: #88ff00; }
+    50%  { stroke: #ff00ff; }
+    67%  { stroke: #8800ff; }
+    83%  { stroke: #0088ff; }
+    100% { stroke: #00ffff; }
+}
+
+@keyframes tentacle-trail {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg) scaleY(1);
+    }
+    25% {
+        transform: translateX(3px) rotate(1.5deg) scaleY(1.02);
+    }
+    50% {
+        transform: translateX(-2px) rotate(-1deg) scaleY(0.97);
+    }
+    75% {
+        transform: translateX(4px) rotate(2deg) scaleY(1.01);
+    }
+}
+
+/* Dark mode jellyfish bloom — rainbow glow */
+body.dark-mode .jellyfish-decoration {
+    opacity: 0.5;
+    mix-blend-mode: screen;
+    color: #00ffff;
+    animation: jellyfish-float 6s ease-in-out infinite, rainbow-glow 4s linear infinite;
+}
+
+body.dark-mode .jellyfish-research {
+    animation: jellyfish-float-rotated 6s ease-in-out infinite, rainbow-glow 4s linear infinite;
+}
+
+body.dark-mode .jellyfish-contact {
+    animation: jellyfish-float-flipped 6s ease-in-out infinite, rainbow-glow 4s linear infinite;
+}
+
+@keyframes rainbow-glow {
+    0%   { filter: drop-shadow(0 0 8px #00ffff); }
+    17%  { filter: drop-shadow(0 0 8px #00ff88); }
+    33%  { filter: drop-shadow(0 0 8px #88ff00); }
+    50%  { filter: drop-shadow(0 0 8px #ff00ff); }
+    67%  { filter: drop-shadow(0 0 8px #8800ff); }
+    83%  { filter: drop-shadow(0 0 8px #0088ff); }
+    100% { filter: drop-shadow(0 0 8px #00ffff); }
+}
+
+body.dark-mode .comb-row {
+    animation: comb-iridescence 4s linear infinite;
+    animation-delay: calc(var(--row) * 0.4s);
+}
+
+body.dark-mode .jelly-tentacle {
+    opacity: 0.6;
+}
+
+/* ===== ORGANISM DECORATIONS (DNA, Radiolarian, Phage, Diatom) ===== */
+.organism-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    transition: opacity 0.8s ease, filter 0.8s ease;
+    color: var(--subtle-gold);
+}
+
+.organism-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* DNA Helix — About section, right side */
+.dna-about {
+    right: 3%;
+    top: 5%;
+    width: 80px;
+    height: 350px;
+    animation: organism-drift 8s ease-in-out infinite;
+}
+
+/* Radiolarian — Publications section, left side */
+.radiolarian-publications {
+    left: 2%;
+    top: 15%;
+    width: 220px;
+    height: 220px;
+    animation: organism-spin 30s linear infinite;
+}
+
+/* Diatom — Portfolio section, right side */
+.diatom-portfolio {
+    right: 2%;
+    bottom: 10%;
+    width: 200px;
+    height: 200px;
+    animation: organism-spin-reverse 25s linear infinite;
+}
+
+/* Bacteriophage — Blog section, left side */
+.phage-blog {
+    left: 3%;
+    bottom: 8%;
+    width: 100px;
+    height: 220px;
+    animation: organism-drift 7s ease-in-out infinite;
+}
+
+@keyframes organism-drift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes organism-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes organism-spin-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* DNA helix twist animation */
+.dna-backbone {
+    stroke-dasharray: 8 4;
+    animation: dna-twist 3s linear infinite;
+}
+
+.dna-base {
+    animation: dna-pulse 4s ease-in-out infinite;
+    animation-delay: calc(var(--base) * 0.3s);
+}
+
+@keyframes dna-twist {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -24; }
+}
+
+@keyframes dna-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Radiolarian spine pulse */
+.radio-spine {
+    animation: spine-pulse 5s ease-in-out infinite;
+    animation-delay: calc(var(--spine) * 0.35s);
+}
+
+@keyframes spine-pulse {
+    0%, 100% { opacity: 0.3; transform-origin: center; }
+    50% { opacity: 0.6; }
+}
+
+/* Phage fiber sway */
+.phage-fiber {
+    animation: fiber-sway 4s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.phage-fiber:nth-child(odd) {
+    animation-duration: 4.5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes fiber-sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+}
+
+/* Diatom pore shimmer */
+.diatom-pore {
+    animation: pore-shimmer 3s ease-in-out infinite;
+}
+
+.diatom-pore:nth-child(odd) {
+    animation-delay: 1.5s;
+}
+
+@keyframes pore-shimmer {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.4; }
+}
+
+/* ===== DARK MODE — Organism Glow ===== */
+body.dark-mode .organism-decoration {
+    opacity: 0.45;
+    mix-blend-mode: screen;
+}
+
+/* DNA — electric blue helix glow */
+body.dark-mode .dna-about {
+    color: #00aaff;
+    animation: organism-drift 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px #0088ff);
+}
+
+body.dark-mode .dna-backbone {
+    animation: dna-twist 3s linear infinite, dna-color-shift 6s linear infinite;
+}
+
+@keyframes dna-color-shift {
+    0%   { stroke: #00aaff; }
+    33%  { stroke: #aa00ff; }
+    66%  { stroke: #00ffaa; }
+    100% { stroke: #00aaff; }
+}
+
+body.dark-mode .dna-base {
+    animation: dna-pulse-dark 4s ease-in-out infinite;
+    animation-delay: calc(var(--base) * 0.3s);
+}
+
+@keyframes dna-pulse-dark {
+    0%, 100% { opacity: 0.4; stroke: #00aaff; }
+    50% { opacity: 0.9; stroke: #ff00aa; }
+}
+
+body.dark-mode .dna-nucleotide {
+    animation: nucleotide-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nucleotide-glow {
+    from { opacity: 0.4; fill: #00aaff; }
+    to { opacity: 0.9; fill: #ff44aa; }
+}
+
+/* Radiolarian — golden/cyan pulsing geometric glow */
+body.dark-mode .radiolarian-publications {
+    color: #ffaa00;
+    filter: drop-shadow(0 0 8px #ffaa00);
+    animation: organism-spin 30s linear infinite, radiolarian-glow 4s ease-in-out infinite;
+}
+
+@keyframes radiolarian-glow {
+    0%, 100% { filter: drop-shadow(0 0 6px #ffaa00); }
+    50% { filter: drop-shadow(0 0 12px #00ffff); }
+}
+
+body.dark-mode .radio-spine {
+    animation: spine-pulse 5s ease-in-out infinite, spine-color 6s linear infinite;
+    animation-delay: calc(var(--spine) * 0.35s);
+}
+
+@keyframes spine-color {
+    0%   { stroke: #ffaa00; }
+    50%  { stroke: #00ffff; }
+    100% { stroke: #ffaa00; }
+}
+
+body.dark-mode .radio-ring {
+    animation: ring-breathe 4s ease-in-out infinite;
+}
+
+@keyframes ring-breathe {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+/* Diatom — magenta/green bioluminescent rotation */
+body.dark-mode .diatom-portfolio {
+    color: #ff00ff;
+    filter: drop-shadow(0 0 6px #ff00ff);
+    animation: organism-spin-reverse 25s linear infinite, diatom-glow 5s ease-in-out infinite;
+}
+
+@keyframes diatom-glow {
+    0%, 100% { filter: drop-shadow(0 0 6px #ff00ff); }
+    50% { filter: drop-shadow(0 0 10px #00ff88); }
+}
+
+body.dark-mode .diatom-pore {
+    animation: pore-shimmer-dark 2s ease-in-out infinite;
+}
+
+@keyframes pore-shimmer-dark {
+    0%, 100% { opacity: 0.3; fill: #ff00ff; }
+    50% { opacity: 0.8; fill: #00ff88; }
+}
+
+body.dark-mode .diatom-core {
+    animation: core-pulse 3s ease-in-out infinite;
+}
+
+@keyframes core-pulse {
+    0%, 100% { opacity: 0.5; stroke: #ff00ff; }
+    50% { opacity: 1; stroke: #00ffaa; }
+}
+
+/* Bacteriophage — green/cyan virus glow */
+body.dark-mode .phage-blog {
+    color: #00ff88;
+    filter: drop-shadow(0 0 6px #00ff88);
+    animation: organism-drift 7s ease-in-out infinite;
+}
+
+body.dark-mode .phage-head {
+    animation: phage-head-glow 3s ease-in-out infinite;
+}
+
+@keyframes phage-head-glow {
+    0%, 100% { stroke: #00ff88; opacity: 0.6; }
+    50% { stroke: #00ffff; opacity: 1; }
+}
+
+body.dark-mode .phage-dna {
+    animation: phage-dna-flash 2s ease-in-out infinite;
+}
+
+@keyframes phage-dna-flash {
+    0%, 100% { opacity: 0.3; stroke: #00ff88; }
+    50% { opacity: 0.8; stroke: #ffff00; }
+}
+
+body.dark-mode .phage-fiber {
+    animation: fiber-sway 4s ease-in-out infinite;
+    stroke: #00ffaa;
+    opacity: 0.6;
+}
+
+/* Hide organisms on small screens to avoid clutter */
+@media (max-width: 768px) {
+    .organism-decoration {
+        display: none;
+    }
+}
+
+/* Reduced motion: keep visible but static */
+@media (prefers-reduced-motion: reduce) {
+    .comb-row,
+    .jelly-tentacle,
+    .jellyfish-decoration,
+    .jellyfish-research,
+    .jellyfish-contact,
+    .organism-decoration,
+    .dna-backbone,
+    .dna-base,
+    .dna-nucleotide,
+    .radio-spine,
+    .radio-ring,
+    .diatom-pore,
+    .diatom-core,
+    .phage-head,
+    .phage-dna,
+    .phage-fiber {
+        animation: none !important;
+    }
+    body.dark-mode .jellyfish-decoration,
+    body.dark-mode .jellyfish-research,
+    body.dark-mode .jellyfish-contact {
+        animation: none !important;
+        filter: drop-shadow(0 0 6px #00ffff);
+    }
+    body.dark-mode .organism-decoration {
+        animation: none !important;
+    }
+    .theme-toggle .esca {
+        animation: none !important;
+    }
+}
+
+/* ===== DARK MODE TRANSITION ===== */
+body.dark-mode-transition,
+body.dark-mode-transition * {
+    transition: background-color 0.5s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* ===== DARK MODE VARIABLE OVERRIDES ===== */
+body.dark-mode {
+    --dark-royal-green: #0a0a1a;
+    --subtle-gold: #E0B854;
+    --ivory: #e8e8f0;
+    --light-beige: #141420;
+    --dark-text: #e0e0e8;
+    --maroon: #1a0a1a;
+    --hero-gradient: linear-gradient(135deg, #0a0a1a 0%, #0d0820 100%);
+    --card-gradient: linear-gradient(145deg, rgba(224, 184, 84, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    --gold-glow: 0 0 20px rgba(224, 184, 84, 0.3);
+    --red-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --soft-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --deep-blood-red: #1a0520;
+}
+
+/* Section-specific dark mode overrides for hardcoded colors */
+body.dark-mode .navbar {
+    background: rgba(10, 10, 26, 0.95);
+    border-bottom-color: rgba(224, 184, 84, 0.15);
+}
+
+body.dark-mode .navbar.scrolled {
+    background: rgba(10, 10, 26, 0.98);
+}
+
+body.dark-mode .research-vision {
+    background: #0d0d20;
+}
+
+body.dark-mode .footer {
+    background: #08081a;
+    border-top-color: rgba(224, 184, 84, 0.15);
+}
+
+body.dark-mode .publication-card {
+    background: #1e1e2e;
+    border-left-color: var(--subtle-gold);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .publication-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .pub-title {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .pub-authors {
+    color: #999;
+}
+
+body.dark-mode .pub-metric {
+    color: var(--ivory);
+}
+
+body.dark-mode .status-prep {
+    background: rgba(224, 184, 84, 0.15);
+    color: #E0B854;
+    border-color: rgba(224, 184, 84, 0.3);
+}
+
+body.dark-mode .pub-btn {
+    background: #2a2a3e;
+    border-color: #2a2a3e;
+    color: var(--ivory);
+}
+
+body.dark-mode .pub-btn:hover {
+    background: var(--subtle-gold);
+    border-color: var(--subtle-gold);
+    color: #0a0a1a;
+}
+
+body.dark-mode .pub-btn-abstract {
+    background: transparent;
+    color: var(--subtle-gold);
+    border-color: var(--subtle-gold);
+}
+
+body.dark-mode .pub-btn-abstract:hover {
+    background: var(--subtle-gold);
+    color: #0a0a1a;
+}
+
+/* About section dark mode */
+body.dark-mode .about {
+    color: var(--dark-text);
+}
+
+body.dark-mode .about .section-title {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .about-subtitle {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .about-text p {
+    color: var(--dark-text);
+}
+
+body.dark-mode .skills h4 {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .skill-tag {
+    background: #2a2a3e;
+    color: var(--ivory);
+}
+
+body.dark-mode .skill-tag:hover {
+    background: var(--subtle-gold);
+    color: #0a0a1a;
+}
+
+body.dark-mode .publications .section-title {
+    color: var(--subtle-gold);
+}
+
+/* Form dark mode */
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #1e1e2e;
+    color: var(--ivory);
+    border-color: var(--subtle-gold);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+}
+
+body.dark-mode .contact-form {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(224, 184, 84, 0.2);
+}
+
+/* Modal dark mode */
+body.dark-mode .modal-content {
+    background-color: #1a1a2e;
+    color: var(--ivory);
+}
+
+body.dark-mode .modal-title {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .modal-text,
+body.dark-mode .modal-text p,
+body.dark-mode .modal-text ul,
+body.dark-mode .modal-text li {
+    color: var(--ivory);
+}
+
+body.dark-mode .close-modal {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .close-modal:hover {
+    color: #00d4ff;
+}
+
+body.dark-mode .modal-reading-time {
+    color: var(--subtle-gold);
+}
+
+body.dark-mode .modal-text h3,
+body.dark-mode .modal-text h4 {
+    color: #00d4ff;
+}
+
+body.dark-mode .modal-text a {
+    color: #00d4ff;
+}
+
+body.dark-mode .modal-text a:hover {
+    color: #88eeff;
+}
+
+body.dark-mode .modal-text .btn {
+    color: #00d4ff !important;
+    border-color: #00d4ff !important;
+}
+
+body.dark-mode .modal-text .btn:hover {
+    background: rgba(0, 212, 255, 0.15);
+}
+
+body.dark-mode .modal-text strong {
+    color: #f0f0f8;
+}
+
+body.dark-mode .modal-section-divider {
+    background: rgba(0, 212, 255, 0.3);
+}
+
+body.dark-mode #modal-body::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+body.dark-mode #modal-body::-webkit-scrollbar-thumb {
+    background: rgba(224, 184, 84, 0.3);
+}
+
+body.dark-mode #modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(224, 184, 84, 0.5);
+}
+
+/* Mobile nav dark mode */
+@media (max-width: 768px) {
+    body.dark-mode .nav-menu {
+        background-color: rgba(10, 10, 26, 0.98);
+    }
+}
+
+/* Blog card dark mode overrides */
+body.dark-mode .blog-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(224, 184, 84, 0.2);
+}
+
+body.dark-mode .blog-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Portfolio card dark mode */
+body.dark-mode .portfolio-card {
+    background: rgba(224, 184, 84, 0.05);
+    border-color: var(--subtle-gold);
+}
+
+body.dark-mode .portfolio-card:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), var(--card-shadow);
+}
+
+body.dark-mode .portfolio-card:hover .card-icon {
+    color: #00d4ff;
+}
+
+body.dark-mode .tag {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+body.dark-mode .portfolio-card:hover .tag {
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+}
+
+/* CV modal dark mode */
+body.dark-mode .cv-modal-content {
+    background: #0a0a1a !important;
+    border-color: var(--subtle-gold) !important;
+}
+
+body.dark-mode .cv-container {
+    background: #0a0a1a;
 }

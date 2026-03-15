@@ -18,6 +18,155 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- SVG Symbol Definitions for Organism Decorations -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <!-- Comb Jellyfish -->
+        <symbol id="comb-jellyfish" viewBox="0 0 200 300">
+            <path class="jelly-bell" d="M40,140 Q40,30 100,20 Q160,30 160,140" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+            <path class="jelly-bell" d="M55,135 Q55,45 100,35 Q145,45 145,135" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+            <path class="comb-row" style="--row: 0" d="M60,130 Q58,80 68,40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 1" d="M72,135 Q68,75 78,35" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 2" d="M85,138 Q82,70 90,30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 3" d="M98,139 Q97,65 100,28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 4" d="M112,139 Q113,65 110,28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 5" d="M125,138 Q128,70 120,30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 6" d="M138,135 Q142,75 132,35" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="comb-row" style="--row: 7" d="M148,130 Q152,80 142,40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <path class="jelly-tentacle" d="M80,140 Q75,180 85,220 Q90,250 78,280" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+            <path class="jelly-tentacle" d="M100,140 Q95,185 105,230 Q110,260 100,290" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+            <path class="jelly-tentacle" d="M120,140 Q125,180 115,220 Q110,250 122,280" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+        </symbol>
+
+        <!-- DNA Double Helix -->
+        <symbol id="dna-helix" viewBox="0 0 100 300">
+            <!-- Left backbone -->
+            <path class="dna-backbone" d="M20,10 Q80,50 20,90 Q-40,130 20,170 Q80,210 20,250 Q-40,290 20,300" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+            <!-- Right backbone -->
+            <path class="dna-backbone" d="M80,10 Q20,50 80,90 Q140,130 80,170 Q20,210 80,250 Q140,290 80,300" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+            <!-- Base pairs (rungs) -->
+            <line class="dna-base" style="--base: 0" x1="32" y1="30" x2="68" y2="30" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 1" x1="22" y1="50" x2="78" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 2" x1="28" y1="70" x2="72" y2="70" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 3" x1="45" y1="90" x2="55" y2="90" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 4" x1="28" y1="110" x2="72" y2="110" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 5" x1="22" y1="130" x2="78" y2="130" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 6" x1="32" y1="150" x2="68" y2="150" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 7" x1="45" y1="170" x2="55" y2="170" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 8" x1="28" y1="190" x2="72" y2="190" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 9" x1="22" y1="210" x2="78" y2="210" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 10" x1="32" y1="230" x2="68" y2="230" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line class="dna-base" style="--base: 11" x1="45" y1="250" x2="55" y2="250" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <!-- Nucleotide dots at base pair ends -->
+            <circle class="dna-nucleotide" cx="32" cy="30" r="2.5" fill="currentColor" opacity="0.3"/>
+            <circle class="dna-nucleotide" cx="68" cy="30" r="2.5" fill="currentColor" opacity="0.3"/>
+            <circle class="dna-nucleotide" cx="22" cy="130" r="2.5" fill="currentColor" opacity="0.3"/>
+            <circle class="dna-nucleotide" cx="78" cy="130" r="2.5" fill="currentColor" opacity="0.3"/>
+            <circle class="dna-nucleotide" cx="22" cy="210" r="2.5" fill="currentColor" opacity="0.3"/>
+            <circle class="dna-nucleotide" cx="78" cy="210" r="2.5" fill="currentColor" opacity="0.3"/>
+        </symbol>
+
+        <!-- Radiolarian (geometric microscopic sea creature) -->
+        <symbol id="radiolarian" viewBox="0 0 200 200">
+            <!-- Outer spicule ring -->
+            <circle class="radio-ring" cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <!-- Inner shell -->
+            <circle class="radio-ring" cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+            <!-- Central sphere -->
+            <circle class="radio-core" cx="100" cy="100" r="25" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+            <!-- Radial spines (12 directions) -->
+            <line class="radio-spine" style="--spine: 0" x1="100" y1="100" x2="100" y2="5" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 1" x1="100" y1="100" x2="149" y2="17" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 2" x1="100" y1="100" x2="183" y2="51" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 3" x1="100" y1="100" x2="195" y2="100" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 4" x1="100" y1="100" x2="183" y2="149" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 5" x1="100" y1="100" x2="149" y2="183" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 6" x1="100" y1="100" x2="100" y2="195" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 7" x1="100" y1="100" x2="51" y2="183" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 8" x1="100" y1="100" x2="17" y2="149" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 9" x1="100" y1="100" x2="5" y2="100" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 10" x1="100" y1="100" x2="17" y2="51" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line class="radio-spine" style="--spine: 11" x1="100" y1="100" x2="51" y2="17" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <!-- Hexagonal lattice inside inner shell -->
+            <polygon class="radio-lattice" points="100,50 143,75 143,125 100,150 57,125 57,75" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+            <polygon class="radio-lattice" points="100,65 128,80 128,120 100,135 72,120 72,80" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.2"/>
+            <!-- Spine tip ornaments -->
+            <circle cx="100" cy="5" r="3" fill="currentColor" opacity="0.3"/>
+            <circle cx="195" cy="100" r="3" fill="currentColor" opacity="0.3"/>
+            <circle cx="100" cy="195" r="3" fill="currentColor" opacity="0.3"/>
+            <circle cx="5" cy="100" r="3" fill="currentColor" opacity="0.3"/>
+        </symbol>
+
+        <!-- Bacteriophage T4 -->
+        <symbol id="bacteriophage" viewBox="0 0 120 260">
+            <!-- Icosahedral head -->
+            <polygon class="phage-head" points="60,10 95,35 95,75 60,100 25,75 25,35" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.6"/>
+            <!-- Head internal structure -->
+            <line class="phage-dna" x1="45" y1="40" x2="75" y2="40" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+            <line class="phage-dna" x1="40" y1="55" x2="80" y2="55" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+            <line class="phage-dna" x1="45" y1="70" x2="75" y2="70" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+            <!-- Collar -->
+            <rect class="phage-collar" x="48" y="100" width="24" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+            <!-- Tail sheath -->
+            <rect class="phage-tail" x="52" y="108" width="16" height="70" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <!-- Tail sheath segments -->
+            <line x1="52" y1="122" x2="68" y2="122" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+            <line x1="52" y1="136" x2="68" y2="136" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+            <line x1="52" y1="150" x2="68" y2="150" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+            <line x1="52" y1="164" x2="68" y2="164" stroke="currentColor" stroke-width="0.6" opacity="0.3"/>
+            <!-- Baseplate -->
+            <path class="phage-baseplate" d="M40,178 L80,178 L72,190 L48,190 Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <!-- Tail fibers (6 legs) -->
+            <path class="phage-fiber" d="M48,185 Q30,200 10,230 Q5,240 15,245" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <path class="phage-fiber" d="M44,188 Q32,210 20,240 Q18,248 25,250" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <path class="phage-fiber" d="M50,190 Q45,215 38,245 Q36,252 42,253" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <path class="phage-fiber" d="M72,185 Q90,200 110,230 Q115,240 105,245" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <path class="phage-fiber" d="M76,188 Q88,210 100,240 Q102,248 95,250" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <path class="phage-fiber" d="M70,190 Q75,215 82,245 Q84,252 78,253" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <!-- Tail pin (needle) -->
+            <line x1="60" y1="190" x2="60" y2="210" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+        </symbol>
+
+        <!-- Diatom (circular pennate with radial symmetry) -->
+        <symbol id="diatom" viewBox="0 0 200 200">
+            <!-- Outer frustule (silica shell) -->
+            <circle class="diatom-shell" cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <circle class="diatom-shell" cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.25"/>
+            <!-- Inner raphe (central axis) -->
+            <line x1="100" y1="15" x2="100" y2="185" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="15" y1="100" x2="185" y2="100" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <!-- Areolae pattern (radial dots/pores) — ring 1 -->
+            <circle class="diatom-pore" cx="100" cy="40" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="142" cy="58" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="160" cy="100" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="142" cy="142" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="100" cy="160" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="58" cy="142" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="40" cy="100" r="3" fill="currentColor" opacity="0.2"/>
+            <circle class="diatom-pore" cx="58" cy="58" r="3" fill="currentColor" opacity="0.2"/>
+            <!-- Areolae ring 2 (outer) -->
+            <circle class="diatom-pore" cx="100" cy="22" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="155" cy="45" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="178" cy="100" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="155" cy="155" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="100" cy="178" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="45" cy="155" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="22" cy="100" r="2.5" fill="currentColor" opacity="0.15"/>
+            <circle class="diatom-pore" cx="45" cy="45" r="2.5" fill="currentColor" opacity="0.15"/>
+            <!-- Costae (radial ribs) -->
+            <path class="diatom-costa" d="M100,100 L120,18" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L170,55" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L170,145" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L120,182" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L80,18" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L30,55" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L30,145" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <path class="diatom-costa" d="M100,100 L80,182" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.15"/>
+            <!-- Central nodule -->
+            <circle class="diatom-core" cx="100" cy="100" r="12" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="100" cy="100" r="4" fill="currentColor" opacity="0.3"/>
+        </symbol>
+    </svg>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -47,6 +196,32 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="anglerfish-icon" viewBox="0 0 36 36" width="24" height="24">
+                    <!-- Esca (glowing lure ball) -->
+                    <circle class="esca" cx="5" cy="3" r="2.5"/>
+                    <!-- Illicium (lure stalk) — single clean arc from forehead -->
+                    <path d="M5,5.5 C7,14 12,17 17,14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Body — outline only, bulbous round shape facing left -->
+                    <path class="angler-body" d="M12,16 C10,12 14,8 22,8 C30,8 34,14 34,20 C34,26 30,32 22,32 C14,32 10,28 12,24" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <!-- Upper jaw -->
+                    <path d="M12,16 L5,13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <!-- Lower jaw -->
+                    <path d="M12,24 L5,27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <!-- Teeth top (pointing down-inward) -->
+                    <line x1="7" y1="13.8" x2="8.5" y2="16.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    <line x1="9" y1="14.5" x2="10" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    <!-- Teeth bottom (pointing up-inward) -->
+                    <line x1="7" y1="26.2" x2="8.5" y2="23.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    <line x1="9" y1="25.5" x2="10" y2="23" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    <!-- Eye -->
+                    <circle cx="22" cy="17" r="2.5" fill="currentColor"/>
+                    <!-- Tail fin -->
+                    <path d="M34,20 L38,15 M34,20 L38,25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Dorsal fin spike -->
+                    <path d="M26,8 L28,3" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+            </button>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -57,6 +232,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="jellyfish-decoration jellyfish-hero">
+            <svg class="jellyfish-svg"><use href="#comb-jellyfish"/></svg>
+        </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-image">
@@ -81,6 +259,9 @@
 
     <!-- About Section -->
     <section id="about" class="about">
+        <div class="organism-decoration dna-about">
+            <svg class="organism-svg"><use href="#dna-helix"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="section-divider"></div>
@@ -145,6 +326,9 @@
 
     <!-- Research Vision Section -->
     <section id="research" class="research-vision">
+        <div class="jellyfish-decoration jellyfish-research">
+            <svg class="jellyfish-svg"><use href="#comb-jellyfish"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">What Drives My Research</h2>
             <div class="section-divider"></div>
@@ -167,6 +351,9 @@
 
     <!-- Publications Section -->
     <section id="publications" class="publications">
+        <div class="organism-decoration radiolarian-publications">
+            <svg class="organism-svg"><use href="#radiolarian"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">Publications</h2>
             <div class="section-divider"></div>
@@ -198,6 +385,9 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
+        <div class="organism-decoration diatom-portfolio">
+            <svg class="organism-svg"><use href="#diatom"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">Portfolio</h2>
             <div class="section-divider"></div>
@@ -314,6 +504,9 @@
 
     <!-- Blog Section -->
     <section id="blog" class="blog">
+        <div class="organism-decoration phage-blog">
+            <svg class="organism-svg"><use href="#bacteriophage"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">Research Deep Dives</h2>
             <div class="section-divider"></div>
@@ -382,6 +575,9 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
+        <div class="jellyfish-decoration jellyfish-contact">
+            <svg class="jellyfish-svg"><use href="#comb-jellyfish"/></svg>
+        </div>
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="section-divider"></div>

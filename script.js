@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTypewriterEffect();
     initializeBlogListeners();
     initializeCVModal();
+    initializeDarkMode();
     // Dynamic footer year
     const yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -44,11 +45,12 @@ function initializeNavigation() {
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+        const isDark = document.body.classList.contains('dark-mode');
         if (scrollTop > 100) {
-            navbar.style.background = 'rgba(1, 68, 33, 0.98)';
+            navbar.style.background = isDark ? 'rgba(10, 10, 26, 0.98)' : 'rgba(1, 68, 33, 0.98)';
             navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
         } else {
-            navbar.style.background = 'rgba(1, 68, 33, 0.95)';
+            navbar.style.background = isDark ? 'rgba(10, 10, 26, 0.95)' : 'rgba(1, 68, 33, 0.95)';
             navbar.style.boxShadow = 'none';
         }
 
@@ -98,6 +100,43 @@ function highlightActiveSection() {
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
+    });
+}
+
+// ===== DARK MODE =====
+function initializeDarkMode() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    // Only activate dark mode if user explicitly saved that preference
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    toggle.addEventListener('click', function() {
+        // Add transition class for smooth toggle
+        document.body.classList.add('dark-mode-transition');
+        document.body.classList.toggle('dark-mode');
+
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        // Update navbar inline styles
+        const navbar = document.querySelector('.navbar');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (navbar) {
+            if (scrollTop > 100) {
+                navbar.style.background = isDark ? 'rgba(10, 10, 26, 0.98)' : 'rgba(1, 68, 33, 0.98)';
+            } else {
+                navbar.style.background = isDark ? 'rgba(10, 10, 26, 0.95)' : 'rgba(1, 68, 33, 0.95)';
+            }
+        }
+
+        // Remove transition class after animation completes
+        setTimeout(() => {
+            document.body.classList.remove('dark-mode-transition');
+        }, 600);
     });
 }
 
