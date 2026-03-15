@@ -542,6 +542,128 @@ if ('serviceWorker' in navigator) {
 
 // ===== BLOG CONTENT DATA =====
 const blogData = {
+    'hcc-altitude': {
+        title: 'A 9-Gene High-Altitude Adaptation Signature Predicts Overall Survival in Hepatocellular Carcinoma',
+        image: 'Image/altitude_km.png',
+        readingTime: '8 min read',
+        content: `
+            <h3>Abstract</h3>
+            <p><strong>Background:</strong> High-altitude adaptation involves chronic hypoxia responses that share molecular machinery with tumour hypoxia in hepatocellular carcinoma (HCC). Whether altitude-adaptive genes carry prognostic information in HCC remains unexplored.</p>
+
+            <p><strong>Methods:</strong> We curated 24 high-altitude adaptation genes from genome-wide studies in Tibetan, Andean, and Ethiopian highland populations. Using TCGA-LIHC as the training cohort (n=365), we applied LASSO-penalised Cox regression to derive a 9-gene risk score. The signature was validated in three independent cohorts: GSE14520 (n=242), GSE76427 (n=115), and ICGC-LIRI-JP (n=211).</p>
+
+            <p><strong>Results:</strong> The 9-gene signature stratified patients into high- and low-risk groups with significant overall survival differences across all cohorts (log-rank p &lt; 0.001 in training; p &lt; 0.05 in all validation sets). The training C-index was 0.671. Multivariate Cox analysis confirmed the signature as an independent prognostic factor after adjusting for age, stage, and grade. Functional enrichment revealed associations with hypoxia signalling, angiogenesis, and immune checkpoint pathways.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Key Figures</h3>
+
+            <h4>Kaplan-Meier Survival Curves (Training + Test)</h4>
+            <img src="Image/altitude_km.png" alt="Altitude signature KM curves" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <h4>Forest Plot: Multivariate Analysis</h4>
+            <img src="Image/altitude_forest.png" alt="Forest plot, multivariate analysis" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <h4>Comprehensive Validation Across Cohorts</h4>
+            <img src="Image/altitude_validation.png" alt="Multi-cohort validation results" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <div class="modal-section-divider"></div>
+
+            <h3>The 9 Signature Genes</h3>
+            <p>The LASSO model selected 9 genes from the initial 24 altitude-adaptation candidates. These genes participate in oxygen sensing (HIF pathway), erythropoiesis, vascular remodelling, and metabolic adaptation to hypoxia, pathways that HCC co-opts for tumour progression.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Translational Significance</h3>
+            <p>This work demonstrates that evolutionary adaptation to environmental hypoxia provides a lens for understanding tumour biology. The altitude-derived signature may help identify HCC patients who would benefit from anti-angiogenic or hypoxia-targeted therapies.</p>
+
+            <p style="margin-top: 20px;"><a href="https://github.com/ishaschhikara316/hcc-altitude-signature" target="_blank" style="color: var(--deep-blood-red); font-weight: 600;">View Full Code on GitHub &rarr;</a></p>
+        `
+    },
+    'hcc-ros': {
+        title: 'An 11-Gene ROS/Ferroptosis Prognostic Signature for Hepatocellular Carcinoma',
+        image: 'Image/ros_km.png',
+        readingTime: '8 min read',
+        content: `
+            <h3>Abstract</h3>
+            <p><strong>Background:</strong> Ferroptosis, iron-dependent lipid-peroxide-driven cell death, is emerging as a targetable vulnerability in hepatocellular carcinoma. Reactive oxygen species (ROS) regulation sits at the intersection of ferroptosis sensitivity and tumour survival. We hypothesised that ROS/ferroptosis gene expression patterns carry prognostic value in HCC.</p>
+
+            <p><strong>Methods:</strong> Starting from a curated set of ROS metabolism and ferroptosis-related genes, we applied LASSO-penalised Cox regression to TCGA-LIHC (n=365) to derive an 11-gene risk score. Validation was performed in four independent cohorts: GSE14520 (n=242), GSE76427 (n=115), GSE54236 (n=78), and ICGC-LIRI-JP (n=211).</p>
+
+            <p><strong>Results:</strong> The 11-gene signature achieved a C-index of 0.700 in the training cohort and maintained significant risk stratification across all validation sets (log-rank p &lt; 0.05). The signature was independent of clinical covariates in multivariate analysis. High-risk patients showed enrichment for immune checkpoint expression, higher tumour mutational burden, and differential drug sensitivity profiles, particularly sensitivity to sorafenib and ferroptosis inducers.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Key Figures</h3>
+
+            <h4>Kaplan-Meier Survival Curves (Training + Test)</h4>
+            <img src="Image/ros_km.png" alt="ROS signature KM curves" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <h4>Forest Plot: Multi-Cohort Validation</h4>
+            <img src="Image/ros_forest.png" alt="Forest plot, multi-cohort validation" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <h4>External Validation KM Curves</h4>
+            <img src="Image/ros_validation.png" alt="Validation cohort KM curves" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+            <div class="modal-section-divider"></div>
+
+            <h3>The 11 Signature Genes</h3>
+            <p>The LASSO model selected 11 genes from the ROS/ferroptosis gene set. These genes regulate glutathione metabolism, lipid peroxidation, iron homeostasis, and NRF2 signalling. These are key pathways that determine ferroptosis sensitivity in HCC cells.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Clinical Implications</h3>
+            <p>High-risk patients identified by this signature showed elevated immune checkpoint expression and distinct drug sensitivity profiles. This suggests the ROS/ferroptosis signature could guide both immunotherapy selection and ferroptosis-based treatment strategies in HCC.</p>
+
+            <p style="margin-top: 20px;"><a href="https://github.com/ishaschhikara316/hcc-ros-signature" target="_blank" style="color: var(--deep-blood-red); font-weight: 600;">View Full Code on GitHub &rarr;</a></p>
+        `
+    },
+    'blog-mountains-tumours': {
+        title: 'When Mountains Meet Tumours: What Altitude Genes Reveal About Liver Cancer',
+        readingTime: '6 min read',
+        content: `
+            <h3>What Do Tibetan Highlanders and Liver Tumour Cells Share?</h3>
+            <p>Here's a question that sounds like it belongs in a pub quiz rather than a research paper: what connects a Tibetan herder living at 4,500 metres to a hepatocellular carcinoma cell dividing in someone's liver?</p>
+
+            <p>The answer is oxygen, or more precisely, the lack of it.</p>
+
+            <p>Tibetans have lived at extreme altitude for thousands of years. Over that time, natural selection reshaped their genomes. Certain genes were favoured: genes that help cells cope with chronic low oxygen, manage oxidative stress, and regulate blood vessel growth. The result is a population that thrives where most humans would struggle to breathe.</p>
+
+            <p>Now consider a liver tumour. As it grows, it outpaces its blood supply. The centre of the tumour becomes hypoxic. And like any organism under pressure, tumour cells adapt. They switch on hypoxia-response genes, rewire their metabolism, and signal for new blood vessels. Many of the molecular pathways they hijack are the same ones that help highlanders survive thin air.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>The Question Nobody Had Asked</h3>
+            <p>Altitude adaptation and tumour hypoxia use overlapping molecular machinery: HIF signalling, VEGF-driven angiogenesis, shifts in oxidative metabolism. This is well established in the literature. But when I went looking, I couldn't find anyone who had taken the specific genes under selection in highland populations and asked: <em>do these genes predict who survives liver cancer?</em></p>
+
+            <p>That gap felt like an opportunity. If evolution has already identified the genes most critical for surviving chronic hypoxia, maybe those same genes could reveal something about which tumours are most dangerous.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Building the Signature</h3>
+            <p>I started with 24 genes, curated from genome-wide studies of Tibetan, Andean, and Ethiopian highland populations. These are genes with strong evidence of positive selection in response to altitude. I then pulled gene expression and survival data for 365 liver cancer patients from TCGA.</p>
+
+            <p>Using a statistical method called LASSO-Cox regression (which forces the model to pick only the genes that genuinely matter, discarding the rest), I narrowed 24 candidates down to 9. Nine genes. That's the signature.</p>
+
+            <p>Each patient gets a risk score based on the expression of these 9 genes. Split into high-risk and low-risk groups, the survival curves separate clearly. High-risk patients die sooner. The concordance index (a measure of how well the model discriminates) came out at 0.671. Not perfect, but solidly predictive, and crucially, it held up when I tested it on three completely independent patient cohorts totalling 568 patients.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>Why This Matters</h3>
+            <p>The immediate clinical implication is risk stratification. If you can identify which HCC patients have aggressive, hypoxia-adapted tumours, you can potentially route them toward anti-angiogenic therapies or hypoxia-targeted drugs earlier. The signature provides a molecular lens that clinical staging alone doesn't offer.</p>
+
+            <p>But I think the deeper implication is methodological. Evolutionary biology and cancer biology rarely talk to each other. Population geneticists study altitude adaptation. Oncologists study tumour hypoxia. The gene lists overlap, but the fields don't. By deliberately using evolutionary selection signals as the starting point for a cancer prognostic model, you're borrowing millennia of natural experimentation to inform clinical prediction.</p>
+
+            <div class="modal-section-divider"></div>
+
+            <h3>What Comes Next</h3>
+            <p>A computational signature is a hypothesis, not a conclusion. The next step is wet-lab validation: testing whether manipulating these 9 genes in HCC cell lines actually changes proliferation, migration, or drug sensitivity under hypoxic conditions. If the computational prediction holds at the bench, it becomes a much stronger candidate for clinical development.</p>
+
+            <p>There's also the question of whether this approach generalises. If altitude-adaptation genes predict outcomes in liver cancer, do they carry signal in other solid tumours where hypoxia is a driver, like pancreatic cancer, glioblastoma, renal cell carcinoma? That's a question worth pursuing.</p>
+
+            <p>For now, the finding stands on its own: genes shaped by mountains can tell us something about tumours. Evolution, it turns out, did some of the hard work already. We just need to learn how to read it.</p>
+        `
+    },
     'survival-analysis': {
         title: 'Kaplan-Meier Survival Analysis: Validating Therapeutic Targets',
         image: 'Image/HIF1A_Academic_Survival.png',
@@ -568,7 +690,7 @@ const blogData = {
             <ul>
                 <li><strong>Red Line (Risk Group):</strong> Patients with HIGH levels of the gene.</li>
                 <li><strong>Blue Line (Safer Group):</strong> Patients with LOW levels.</li>
-                <li><strong>Observation:</strong> The blue line stays higher for longer. This suggests that keeping this gene's levels <em>low</em> is better for survival—validating it as a potential target for downregulation.</li>
+                <li><strong>Observation:</strong> The blue line stays higher for longer. This suggests that keeping this gene's levels <em>low</em> is better for survival, validating it as a potential target for downregulation.</li>
             </ul>
 
             <div class="modal-section-divider"></div>
@@ -578,7 +700,7 @@ const blogData = {
             
             <img src="Image/HIF1A_Academic_Survival.png" alt="Academic Survival Plot" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             
-            <p><strong>Statistical Significance:</strong> The p-value is <strong>0.0549</strong>. Our result is on the borderline—a strong "biological signal" suggesting that with a larger patient cohort, this would likely be definitive. It strongly supports the hypothesis that <em>HIF1A</em> drives poor outcomes in Liver Cancer.</p>
+            <p><strong>Statistical Significance:</strong> The p-value is <strong>0.0549</strong>. Our result is on the borderline: a strong "biological signal" suggesting that with a larger patient cohort, this would likely be definitive. It strongly supports the hypothesis that <em>HIF1A</em> drives poor outcomes in Liver Cancer.</p>
 
             <h3>💻 The Tech Stack & Data Source</h3>
             <p>This analysis was performed using a custom Python pipeline:</p>
@@ -609,7 +731,7 @@ const blogData = {
             <h3>🎯 The Mission: Finding the Bullseye</h3>
             <p>If we want to cure cancer with precision weapons like CAR-T cells or Antibody-Drug Conjugates (ADCs), we first need a target. We need a protein that is waving a giant flag on the surface of cancer cells but is nowhere to be found on healthy cells.</p>
             
-            <p>To find these hidden targets, I dove into the <strong>GSE76427 dataset</strong>—a massive transcriptomic library comparing Hepatocellular Carcinoma (HCC) tumors directly against adjacent healthy liver tissue from 115 patients.</p>
+            <p>To find these hidden targets, I dove into the <strong>GSE76427 dataset</strong>, a massive transcriptomic library comparing Hepatocellular Carcinoma (HCC) tumors directly against adjacent healthy liver tissue from 115 patients.</p>
 
             <div class="modal-section-divider"></div>
 
@@ -634,7 +756,7 @@ const blogData = {
             <div class="modal-section-divider"></div>
 
             <h3>📦 Validating the Target: PROM1 (CD133)</h3>
-            <p>One candidate stood out: <strong>PROM1</strong>, also known as <strong>CD133</strong>. This isn't just any protein; it is a well-known marker for "Cancer Stem Cells"—the nasty, resilient cells often responsible for relapse.</p>
+            <p>One candidate stood out: <strong>PROM1</strong>, also known as <strong>CD133</strong>. This isn't just any protein; it is a well-known marker for "Cancer Stem Cells", the nasty, resilient cells often responsible for relapse.</p>
             
             <img src="Image/PROM1_Boxplot.png" alt="Boxplot of PROM1 Expression" style="width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
             
@@ -670,7 +792,7 @@ const blogData = {
         image: 'Image/Hypoxia.jpg',
         content: `
             <h3>🏔️ Scaling Physiological Peaks</h3>
-            <p>At the Defence Institute of Physiology and Allied Sciences (DIPAS), DRDO, I didn't just study biology; I investigated survival. My traineeship focused on the physiological mechanisms that allow organisms to endure the thin air of high altitudes—a critical frontier for our defense forces.</p>
+            <p>At the Defence Institute of Physiology and Allied Sciences (DIPAS), DRDO, I didn't just study biology; I investigated survival. My traineeship focused on the physiological mechanisms that allow organisms to endure the thin air of high altitudes, a critical frontier for our defense forces.</p>
             
             <p>Under expert supervision, I executed rigorous in vivo studies on a cohort of 50+ Wistar rats to model high-altitude stress adaptations. We weren't just observing; we were generating key physiological datasets (blood gas, lactate) that directly validated the institute's acclimatization protocols.</p>
 
@@ -708,10 +830,10 @@ const blogData = {
             <p>The image above summarizes the core of our scaffold design work using Autodesk Fusion 360. Here is the breakdown of our "cellular apartment complex":</p>
             
             <ul>
-                <li><strong>Panel A (The Goal):</strong> Defines the "Design Objective" for our hepatic tissue engineering. We needed a structure that mimics the liver's natural environment—optimizing for nutrient diffusion and cell viability.</li>
+                <li><strong>Panel A (The Goal):</strong> Defines the "Design Objective" for our hepatic tissue engineering. We needed a structure that mimics the liver's natural environment, optimizing for nutrient diffusion and cell viability.</li>
                 <li><strong>Panel B (The Model):</strong> Flaunts the polished isometric render of the lattice. This isn't just a pretty picture; it's a calculated biopolymer scaffold designed to support 3D cell culture.</li>
                 <li><strong>Panel C (The Cross-Section):</strong> Cuts to the chase, revealing the internal pore structure. We validated the pore size (100-200 𝜇m) and interconnectivity in silico to ensure that every cell gets its fair share of nutrients (diffusion).</li>
-                <li><strong>Panel D (The Specs):</strong> Proves we did our homework. This table details the material choices, intended printing methods, and the constraints we checked—from "porosity estimated from CAD" to "basic diffusion reasoning."</li>
+                <li><strong>Panel D (The Specs):</strong> Proves we did our homework. This table details the material choices, intended printing methods, and the constraints we checked, from "porosity estimated from CAD" to "basic diffusion reasoning."</li>
             </ul>
 
             <div class="modal-section-divider"></div>
@@ -735,14 +857,14 @@ const blogData = {
             
             <div class="modal-section-divider"></div>
             
-            <p>But if you have time and want to take a deeper dive to understand these concepts—which happen on a miniscule scale—by taking examples from the macroscopic world, here is my fun short story:</p>
+            <p>But if you have time and want to take a deeper dive to understand these concepts, which happen on a miniscule scale, by taking examples from the macroscopic world, here is my fun short story:</p>
             
             <h3>🏙️ Welcome to Liver City</h3>
             <p>Imagine your liver as a bustling metropolis. The main residents are hepatocytes (the hardworking citizens keeping the lights on). But recently, a nasty gang called Hepatocellular Carcinoma (HCC) has moved in, usually thriving in neighborhoods that are already falling apart due to cirrhosis (scarring).</p>
             <p>Enter the cavalry: CRISPR tools. Think of these as superhero delivery trucks loaded with gene-editing gear, sent to wipe out the HCC gang.</p>
             
             <h4>🎬 The Big Plot Twist</h4>
-            <p>The superheroes are actually great at their job (the gene editing works fine!). The problem isn't the hero—it's the traffic jam preventing them from getting to the fight. It is a logistics nightmare.</p>
+            <p>The superheroes are actually great at their job (the gene editing works fine!). The problem isn't the hero. It's the traffic jam preventing them from getting to the fight. It is a logistics nightmare.</p>
             
             <h3>🟢 The Good Old Days (Healthy Liver)</h3>
             <p>In a healthy city, the infrastructure is a delivery driver’s dream.</p>
