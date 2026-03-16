@@ -270,6 +270,11 @@ p {
     font-weight: 600;
 }
 
+.logo-img {
+    height: 65px;
+    width: auto;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
