@@ -374,6 +374,22 @@ p {
     border-color: var(--deep-blood-red);
 }
 
+/* Light/dark mode profile photo swap */
+.profile-photo-dark,
+.about-photo-dark {
+    display: none;
+}
+
+body.dark-mode .profile-photo-light,
+body.dark-mode .about-photo-light {
+    display: none;
+}
+
+body.dark-mode .profile-photo-dark,
+body.dark-mode .about-photo-dark {
+    display: block;
+}
+
 .image-glow {
     position: absolute;
     top: 50%;
