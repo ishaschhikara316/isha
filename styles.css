@@ -375,19 +375,19 @@ p {
 }
 
 /* Light/dark mode profile photo swap */
-.profile-photo-dark,
-.about-photo-dark {
-    display: none;
+.profile-photo.profile-photo-dark,
+.about-photo.about-photo-dark {
+    display: none !important;
 }
 
-body.dark-mode .profile-photo-light,
-body.dark-mode .about-photo-light {
-    display: none;
+body.dark-mode .profile-photo.profile-photo-light,
+body.dark-mode .about-photo.about-photo-light {
+    display: none !important;
 }
 
-body.dark-mode .profile-photo-dark,
-body.dark-mode .about-photo-dark {
-    display: block;
+body.dark-mode .profile-photo.profile-photo-dark,
+body.dark-mode .about-photo.about-photo-dark {
+    display: block !important;
 }
 
 .image-glow {
