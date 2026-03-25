@@ -581,6 +581,28 @@ if ('serviceWorker' in navigator) {
 
 // ===== BLOG CONTENT DATA =====
 const blogData = {
+    'hcc-omniscope': {
+        title: 'HCC OmniScope: Multi-Scale 3D Cancer Biology Explorer',
+        readingTime: '3 min read',
+        content: `
+            <h3>Overview</h3>
+            <p>HCC OmniScope is an interactive 3D visualization tool that unifies our hepatocellular carcinoma research into a single explorable interface. It spans four biological scales: gene networks, cell atlases, patient survival landscapes, and drug-target maps.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Gene Universe:</strong> 3D network of altitude-adaptation and ROS/ferroptosis signature genes, with HMOX1 as the molecular bridge between evolutionary oxygen sensing and tumour oxidative stress.</li>
+                <li><strong>Cell Atlas:</strong> Expression profiles across 14 tissues and 85 cell types from the Human Protein Atlas, revealing macrophages as universal hypoxia specialists.</li>
+                <li><strong>Patient Landscape:</strong> UMAP-based survival terrain of TCGA-LIHC patients, coloured by risk score and clinical outcomes.</li>
+                <li><strong>Drug-Target Map:</strong> Connectivity between druggable targets and candidate compounds for high-risk HCC subtypes.</li>
+            </ul>
+
+            <h3>Guided Research Tour</h3>
+            <p>A 4-step narrative walks through the research story: from thin air to tumour, through the cells that breathe fire, across a landscape of risk, to the drugs that could change outcomes.</p>
+
+            <p style="margin-top: 20px;"><a href="https://ishaschhikara316.github.io/hcc-omniscope/" target="_blank" style="color: var(--deep-blood-red); font-weight: 600;">Launch HCC OmniScope &rarr;</a></p>
+            <p><a href="https://github.com/ishaschhikara316/hcc-omniscope" target="_blank" style="color: var(--deep-blood-red); font-weight: 600;">View Code on GitHub &rarr;</a></p>
+        `
+    },
     'hcc-altitude': {
         title: 'A 9-Gene High-Altitude Adaptation Signature Predicts Overall Survival in Hepatocellular Carcinoma',
         image: 'Image/altitude_km.png',
