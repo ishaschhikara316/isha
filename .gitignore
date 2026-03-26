@@ -1,2 +1,6 @@
 .gemini-clipboard/
 .DS_Store
+
+# Ignore all .md files except README.md
+*.md
+!README.md
